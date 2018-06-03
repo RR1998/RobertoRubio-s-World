@@ -5,6 +5,7 @@ package Razas.Elfos_Nocturnos.Unidades;
  */
 
 import Razas.Elfos_Nocturnos.Veiculos.Hipogrifo;
+import Razas.Elfos_Nocturnos.Veiculos.Quimera;
 import Razas.Unidades;
 import Razas.UnitFactory;
 
@@ -20,6 +21,8 @@ public class GeneradorElfos implements UnitFactory {
                 return new SacerdotizaLunar();
             case "Hipogrifo":
                 return new Hipogrifo();
+            case "Quimera":
+                return new Quimera();
         }
         return null;
     }

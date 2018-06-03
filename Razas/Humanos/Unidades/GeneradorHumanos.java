@@ -5,6 +5,8 @@ package Razas.Humanos.Unidades;
 */
 
 
+import Razas.Humanos.Veiculos.Girocoptero;
+import Razas.Humanos.Veiculos.Mortero;
 import Razas.UnitFactory;
 import Razas.Unidades;
 
@@ -22,6 +24,10 @@ public class GeneradorHumanos implements UnitFactory {
                 return new Fusilero();
             case "Paladin":
                 return new Paladin();
+            case "Girocoptero":
+                return new Girocoptero();
+            case "Mortero":
+                return new Mortero();
         }
         return null;
     }
