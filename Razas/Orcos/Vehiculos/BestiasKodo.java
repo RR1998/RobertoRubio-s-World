@@ -1,25 +1,23 @@
-package Razas.Humanos.Veiculos;
-
-import Razas.Unidades;
-
+package Razas.Orcos.Vehiculos;
 /*
  *@Autor Roberto Alexander Rubio Castillo <00259517@uca.edu.sv>
  */
+import Razas.Unidades;
 
-public class Mortero implements Unidades {
+public class BestiasKodo implements Unidades {
     @Override
-    public int Vida (){
-        int Vida = 200;
+    public int Vida(){
+        int Vida = 700;
         return Vida;
     }
     @Override
     public int Dano(){
-        int Dano = 300;
+        int Dano = 40;
         return Dano;
     }
     @Override
     public int TiempoCreacion(){
-        int Tiempo = 4;
+        int Tiempo = 6;
         return Tiempo;
     }
 }

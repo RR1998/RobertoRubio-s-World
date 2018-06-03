@@ -1,24 +1,25 @@
-package Razas.Muertos_Vivientes.Veiculos;
-
-import Razas.Unidades;
+package Razas.Elfos_Nocturnos.Vehiculos;
 
 /*
  *@Autor Roberto Alexander Rubio Castillo <00259517@uca.edu.sv>
  */
-public class CarrodeDespojos implements Unidades {
+
+import Razas.Unidades;
+
+public class Quimera implements Unidades {
     @Override
-    public int Vida(){
-        int Vida = 700;
+    public int Vida (){
+        int Vida = 600;
         return Vida;
     }
     @Override
     public int Dano(){
-        int Dano = 30;
+        int Dano = 150;
         return Dano;
     }
     @Override
     public int TiempoCreacion(){
-        int Tiempo = 4;
+        int Tiempo = 5;
         return Tiempo;
     }
 }

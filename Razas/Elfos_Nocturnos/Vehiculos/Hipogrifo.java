@@ -1,4 +1,4 @@
-package Razas.Elfos_Nocturnos.Veiculos;
+package Razas.Elfos_Nocturnos.Vehiculos;
 
 /*
  *@Autor Roberto Alexander Rubio Castillo <00259517@uca.edu.sv>

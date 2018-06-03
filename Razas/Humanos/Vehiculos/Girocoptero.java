@@ -1,4 +1,4 @@
-package Razas.Humanos.Veiculos;
+package Razas.Humanos.Vehiculos;
 
 import Razas.Unidades;
 

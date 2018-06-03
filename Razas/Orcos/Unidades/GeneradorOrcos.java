@@ -3,8 +3,8 @@ package Razas.Orcos.Unidades;
  *@Autor Roberto Alexander Rubio Castillo <00259517@uca.edu.sv>
  */
 
-import Razas.Orcos.Veiculos.BestiasKodo;
-import Razas.Orcos.Veiculos.GloboGoblin;
+import Razas.Orcos.Vehiculos.BestiasKodo;
+import Razas.Orcos.Vehiculos.GloboGoblin;
 import Razas.Unidades;
 import Razas.UnitFactory;
 
@@ -18,6 +18,7 @@ public class GeneradorOrcos implements UnitFactory {
     public Unidades getHumano(String Type){
         return null;
     }
+
     @Override
     public Unidades getMuerto(String Type){
         return null;

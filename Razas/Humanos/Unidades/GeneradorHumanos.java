@@ -5,8 +5,8 @@ package Razas.Humanos.Unidades;
 */
 
 
-import Razas.Humanos.Veiculos.Girocoptero;
-import Razas.Humanos.Veiculos.Mortero;
+import Razas.Humanos.Vehiculos.Girocoptero;
+import Razas.Humanos.Vehiculos.Mortero;
 import Razas.UnitFactory;
 import Razas.Unidades;
 

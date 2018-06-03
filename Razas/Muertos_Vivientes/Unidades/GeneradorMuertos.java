@@ -2,8 +2,8 @@ package Razas.Muertos_Vivientes.Unidades;
 /*
  *@Autor Roberto Alexander Rubio Castillo <00259517@uca.edu.sv>
  */
-import Razas.Muertos_Vivientes.Veiculos.CarrodeDespojos;
-import Razas.Muertos_Vivientes.Veiculos.DragonWyrm;
+import Razas.Muertos_Vivientes.Vehiculos.CarrodeDespojos;
+import Razas.Muertos_Vivientes.Vehiculos.DragonWyrm;
 import Razas.UnitFactory;
 import Razas.Unidades;
 

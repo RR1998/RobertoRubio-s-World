@@ -1,25 +1,23 @@
-package Razas.Muertos_Vivientes.Veiculos;
-
+package Razas.Orcos.Vehiculos;
 /*
  *@Autor Roberto Alexander Rubio Castillo <00259517@uca.edu.sv>
  */
-
 import Razas.Unidades;
 
-public class DragonWyrm implements Unidades {
+public class GloboGoblin implements Unidades {
     @Override
     public int Vida(){
-        int Vida = 700;
+        int Vida = 600;
         return Vida;
     }
     @Override
     public int Dano(){
-        int Dano = 70;
+        int Dano = 50;
         return Dano;
     }
     @Override
     public int TiempoCreacion(){
-        int Tiempo = 7;
+        int Tiempo = 5;
         return Tiempo;
     }
 }

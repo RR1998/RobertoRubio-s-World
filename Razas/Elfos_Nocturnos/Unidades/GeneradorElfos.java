@@ -4,8 +4,8 @@ package Razas.Elfos_Nocturnos.Unidades;
  *@Autor Roberto Alexander Rubio Castillo <00259517@uca.edu.sv>
  */
 
-import Razas.Elfos_Nocturnos.Veiculos.Hipogrifo;
-import Razas.Elfos_Nocturnos.Veiculos.Quimera;
+import Razas.Elfos_Nocturnos.Vehiculos.Hipogrifo;
+import Razas.Elfos_Nocturnos.Vehiculos.Quimera;
 import Razas.Unidades;
 import Razas.UnitFactory;
 
