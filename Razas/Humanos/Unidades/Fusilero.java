@@ -1,20 +1,18 @@
-package Razas.Elfos_Nocturnos.Unidades;
-
+package Razas.Humanos.Unidades;
 /*
  *@Autor Roberto Alexander Rubio Castillo <00259517@uca.edu.sv>
  */
-
 import Razas.Unidades;
 
-public class Arquero implements Unidades {
+public class Fusilero implements Unidades{
     @Override
-    public int Vida(){
-        int Vida = 120;
+    public int Vida (){
+        int Vida = 100;
         return Vida;
     }
     @Override
     public int Dano(){
-        int Dano = 30;
+        int Dano = 50;
         return Dano;
     }
     @Override

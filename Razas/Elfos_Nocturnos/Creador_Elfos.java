@@ -5,5 +5,5 @@ package Razas.Elfos_Nocturnos;
  */
 
 public interface Creador_Elfos {
-    void GenerarElfos();
+    void GenerarElfos();  //getElfos
 }

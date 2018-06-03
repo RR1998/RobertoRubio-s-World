@@ -1,10 +1,12 @@
 package Razas.Elfos_Nocturnos.Unidades;
 
-public class SablesLunaplata implements UnidadesElfo {
+import Razas.Unidades;
+
+public class SablesLunaplata implements Unidades {
     @Override
     public int Vida(){
         int Vida = 250;
-        return 250;
+        return Vida;
     }
     @Override
     public int Dano (){
@@ -13,7 +15,7 @@ public class SablesLunaplata implements UnidadesElfo {
     }
     @Override
     public int TiempoCreacion (){
-        int Tiempo = 3;
+        int Tiempo = 2;
         return Tiempo;
     }
 }

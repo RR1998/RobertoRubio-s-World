@@ -1,14 +1,16 @@
 package Razas.Elfos_Nocturnos.Unidades;
 
-public class Heroe implements UnidadesElfo {
+import Razas.Unidades;
+
+public class SacerdotizaLunar implements Unidades {
     @Override
     public int Vida (){
-        int Vida = 500;
+        int Vida = 450;
         return Vida;
     }
     @Override
     public int Dano (){
-        int Dano = 150;
+        int Dano = 60;
         return Dano;
     }
     @Override

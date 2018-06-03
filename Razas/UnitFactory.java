@@ -4,8 +4,9 @@ package Razas;
  *@Autor Roberto Alexander Rubio Castillo <00259517@uca.edu.sv>
  */
 
-import Razas.Elfos_Nocturnos.Unidades.UnidadesElfo;
-
+//Abstract Factory para unidades
 public interface UnitFactory {
-     UnidadesElfo getElfo(String Type);
+     Unidades getElfo(String Type);
+     Unidades getHumano(String Type);
+     Unidades getMuerto(String Type);
 }

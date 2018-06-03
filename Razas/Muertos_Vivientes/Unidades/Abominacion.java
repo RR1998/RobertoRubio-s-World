@@ -1,15 +1,14 @@
-package Razas.Elfos_Nocturnos.Unidades;
-
+package Razas.Muertos_Vivientes.Unidades;
 /*
  *@Autor Roberto Alexander Rubio Castillo <00259517@uca.edu.sv>
- */
+*/
 
 import Razas.Unidades;
 
-public class Arquero implements Unidades {
+public class Abominacion implements Unidades {
     @Override
     public int Vida(){
-        int Vida = 120;
+        int Vida = 400;
         return Vida;
     }
     @Override
