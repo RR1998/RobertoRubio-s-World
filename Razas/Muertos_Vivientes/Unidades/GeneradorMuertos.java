@@ -6,14 +6,17 @@ import Razas.UnitFactory;
 import Razas.Unidades;
 
 public class GeneradorMuertos implements UnitFactory{
+
     @Override
     public Unidades getElfo(String Type){
         return null;
     }
+
     @Override
     public Unidades getHumano(String Type){
         return null;
     }
+
     @Override
     public Unidades getMuerto(String Type){
         switch (Type){
@@ -24,6 +27,11 @@ public class GeneradorMuertos implements UnitFactory{
             case "CaballeroMuerte":
                 return new Caballero();
         }
+        return null;
+    }
+
+    @Override
+    public Unidades getOrco(String Type){
         return null;
     }
 }

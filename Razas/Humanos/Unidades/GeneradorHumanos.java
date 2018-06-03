@@ -25,4 +25,11 @@ public class GeneradorHumanos implements UnitFactory {
         }
         return null;
     }
+    public Unidades getMuerto(String Type){
+        return null;
+    }
+    @Override
+    public Unidades getOrco(String Type){
+        return null;
+    }
 }

@@ -1,36 +1,36 @@
-package Razas.Elfos_Nocturnos.Unidades;
-
+package Razas.Orcos.Unidades;
 /*
  *@Autor Roberto Alexander Rubio Castillo <00259517@uca.edu.sv>
  */
+
 import Razas.Unidades;
 import Razas.UnitFactory;
 
-public class GeneradorElfos implements UnitFactory {
+public class GeneradorOrcos implements UnitFactory {
     @Override
     public Unidades getElfo(String Type){
-        switch (Type){
-            case "Arquero":
-                return new Arquero();
-            case "SableLunaplata":
-                return new SablesLunaplata();
-            case "SacerdotizaLunar":
-                return new SacerdotizaLunar();
-        }
         return null;
     }
+
     @Override
     public Unidades getHumano(String Type){
         return null;
     }
-
     @Override
     public Unidades getMuerto(String Type){
         return null;
     }
 
-    @Override
     public Unidades getOrco(String Type){
-    return null;
+        switch (Type){
+            case "Bruto":
+                return new Bruto();
+            case "Brujo":
+                return new Brujo();
+            case "SenorGuerra":
+                return new Senor();
+        }
+        return null;
     }
+
 }
