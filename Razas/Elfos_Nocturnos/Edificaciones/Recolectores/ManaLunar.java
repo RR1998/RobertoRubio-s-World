@@ -3,21 +3,23 @@ package Razas.Elfos_Nocturnos.Edificaciones.Recolectores;
 import Razas.Recolectores;
 
 public class ManaLunar implements Recolectores {
-    int Generado;
+    int ManaLunar;
 
-    public int getGenerado() {
-        return Generado;
+    public int getManaLunar() {
+        return ManaLunar;
     }
 
-    public void setGenerado(int generado) {
-        Generado = generado;
+    public void setManaLunar(int manaLunar) {
+        ManaLunar = manaLunar;
     }
+
     @Override
     public int Recolectar (){
-        return getGenerado();
+        return getManaLunar();
     }
+
     @Override
     public void Generar(){
-        setGenerado(30);
+        setManaLunar(30);
     }
 }

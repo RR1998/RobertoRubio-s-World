@@ -4,21 +4,23 @@ import Razas.Recolectores;
 
 public class PiedrasCelestiales implements Recolectores {
 
-    int Generado;
+    int PiedrasCelestiales;
 
-    public int getGenerado() {
-        return Generado;
+    public int getPiedrasCelestiales() {
+        return PiedrasCelestiales;
     }
 
-    public void setGenerado(int generado) {
-        Generado = generado;
+    public void setPiedrasCelestiales(int piedrasCelestiales) {
+        PiedrasCelestiales = piedrasCelestiales;
     }
+
     @Override
     public int Recolectar(){
-        return getGenerado();
+        return getPiedrasCelestiales();
     }
+
     @Override
     public void Generar(){
-        setGenerado(40);
+        setPiedrasCelestiales(40);
     }
 }

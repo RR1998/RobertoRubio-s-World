@@ -3,21 +3,23 @@ package Razas.Elfos_Nocturnos.Edificaciones.Recolectores;
 import Razas.Recolectores;
 
 public class BendicionesdelaDiosa implements Recolectores {
-    int Generado;
+    int BendicionesdelaDiosa;
 
-    public int getGenerado() {
-        return Generado;
+    public int getBendicionesdelaDiosa() {
+        return BendicionesdelaDiosa;
     }
 
-    public void setGenerado(int generado) {
-        Generado = generado;
+    public void setBendicionesdelaDiosa(int bendicionesdelaDiosa) {
+        BendicionesdelaDiosa = bendicionesdelaDiosa;
     }
+
     @Override
     public int Recolectar (){
-        return getGenerado();
+        return getBendicionesdelaDiosa();
     }
+
     @Override
     public void Generar(){
-        setGenerado(10);
+        setBendicionesdelaDiosa(10);
     }
 }
