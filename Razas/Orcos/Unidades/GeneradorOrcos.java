@@ -5,8 +5,8 @@ package Razas.Orcos.Unidades;
 
 import Razas.Orcos.Vehiculos.BestiasKodo;
 import Razas.Orcos.Vehiculos.GloboGoblin;
-import Razas.Unidades;
-import Razas.UnitFactory;
+import Interfaces.Unidades;
+import Interfaces.UnitFactory;
 
 public class GeneradorOrcos implements UnitFactory {
     @Override

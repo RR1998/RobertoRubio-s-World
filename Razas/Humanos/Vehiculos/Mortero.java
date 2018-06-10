@@ -1,6 +1,6 @@
 package Razas.Humanos.Vehiculos;
 
-import Razas.Unidades;
+import Interfaces.Unidades;
 
 /*
  *@Autor Roberto Alexander Rubio Castillo <00259517@uca.edu.sv>

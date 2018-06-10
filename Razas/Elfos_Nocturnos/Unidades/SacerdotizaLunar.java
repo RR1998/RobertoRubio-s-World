@@ -1,6 +1,6 @@
 package Razas.Elfos_Nocturnos.Unidades;
 
-import Razas.Unidades;
+import Interfaces.Unidades;
 
 public class SacerdotizaLunar implements Unidades {
     @Override

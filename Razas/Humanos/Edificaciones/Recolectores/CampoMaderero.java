@@ -1,6 +1,6 @@
 package Razas.Humanos.Edificaciones.Recolectores;
 
-import Razas.Recolectores;
+import Interfaces.Recolectores;
 
 public class CampoMaderero implements Recolectores {
     int Madera;

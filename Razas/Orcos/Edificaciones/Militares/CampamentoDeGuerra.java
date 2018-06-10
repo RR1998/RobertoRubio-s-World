@@ -1,8 +1,8 @@
 package Razas.Orcos.Edificaciones.Militares;
 
-import Razas.Militares;
-import Razas.Unidades;
-import Razas.UnitFactory;
+import Interfaces.Militares;
+import Interfaces.Unidades;
+import Interfaces.UnitFactory;
 import Razas.UnitProducer;
 
 public class CampamentoDeGuerra implements Militares {
@@ -18,7 +18,7 @@ public class CampamentoDeGuerra implements Militares {
 
     @Override
     public int Construirse() {
-        setVida(1700);
+        setVida(1800);
         return getVida();
     }
     @Override

@@ -1,6 +1,6 @@
 package Razas.Elfos_Nocturnos.Edificaciones.Recolectores;
 
-import Razas.Recolectores;
+import Interfaces.Recolectores;
 
 public class ManaLunar implements Recolectores {
     int ManaLunar;

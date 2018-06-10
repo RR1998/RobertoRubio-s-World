@@ -7,8 +7,8 @@ package Razas.Humanos.Unidades;
 
 import Razas.Humanos.Vehiculos.Girocoptero;
 import Razas.Humanos.Vehiculos.Mortero;
-import Razas.UnitFactory;
-import Razas.Unidades;
+import Interfaces.UnitFactory;
+import Interfaces.Unidades;
 
 public class GeneradorHumanos implements UnitFactory {
     @Override

@@ -2,7 +2,7 @@ package Razas.Orcos.Vehiculos;
 /*
  *@Autor Roberto Alexander Rubio Castillo <00259517@uca.edu.sv>
  */
-import Razas.Unidades;
+import Interfaces.Unidades;
 
 public class BestiasKodo implements Unidades {
     @Override

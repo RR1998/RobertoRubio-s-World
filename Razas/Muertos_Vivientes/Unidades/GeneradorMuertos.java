@@ -4,8 +4,8 @@ package Razas.Muertos_Vivientes.Unidades;
  */
 import Razas.Muertos_Vivientes.Vehiculos.CarrodeDespojos;
 import Razas.Muertos_Vivientes.Vehiculos.DragonWyrm;
-import Razas.UnitFactory;
-import Razas.Unidades;
+import Interfaces.UnitFactory;
+import Interfaces.Unidades;
 
 public class GeneradorMuertos implements UnitFactory{
 

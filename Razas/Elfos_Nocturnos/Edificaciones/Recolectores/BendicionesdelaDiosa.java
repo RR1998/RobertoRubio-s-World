@@ -1,6 +1,6 @@
 package Razas.Elfos_Nocturnos.Edificaciones.Recolectores;
 
-import Razas.Recolectores;
+import Interfaces.Recolectores;
 
 public class BendicionesdelaDiosa implements Recolectores {
     int BendicionesdelaDiosa;

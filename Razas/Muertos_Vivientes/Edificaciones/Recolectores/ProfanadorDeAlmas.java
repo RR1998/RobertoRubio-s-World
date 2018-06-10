@@ -1,6 +1,6 @@
 package Razas.Muertos_Vivientes.Edificaciones.Recolectores;
 
-import Razas.Recolectores;
+import Interfaces.Recolectores;
 
 public class ProfanadorDeAlmas implements Recolectores {
     int Almas;

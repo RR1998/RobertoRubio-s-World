@@ -1,6 +1,6 @@
 package Razas.Humanos.Edificaciones.Recolectores;
 
-import Razas.Recolectores;
+import Interfaces.Recolectores;
 
 public class MinadeOro implements Recolectores {
     int Oro;

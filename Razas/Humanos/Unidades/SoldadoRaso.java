@@ -3,7 +3,7 @@ package Razas.Humanos.Unidades;
  *@Autor Roberto Alexander Rubio Castillo <00259517@uca.edu.sv>
  */
 
-import Razas.Unidades;
+import Interfaces.Unidades;
 
 public class SoldadoRaso implements Unidades {
     public int Vida(){

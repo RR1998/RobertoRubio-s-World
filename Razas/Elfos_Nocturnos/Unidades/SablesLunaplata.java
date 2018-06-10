@@ -1,6 +1,6 @@
 package Razas.Elfos_Nocturnos.Unidades;
 
-import Razas.Unidades;
+import Interfaces.Unidades;
 
 public class SablesLunaplata implements Unidades {
     @Override

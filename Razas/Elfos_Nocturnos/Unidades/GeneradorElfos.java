@@ -6,8 +6,8 @@ package Razas.Elfos_Nocturnos.Unidades;
 
 import Razas.Elfos_Nocturnos.Vehiculos.Hipogrifo;
 import Razas.Elfos_Nocturnos.Vehiculos.Quimera;
-import Razas.Unidades;
-import Razas.UnitFactory;
+import Interfaces.Unidades;
+import Interfaces.UnitFactory;
 
 public class GeneradorElfos implements UnitFactory {
     @Override
