@@ -6,7 +6,7 @@ package Razas.Elfos_Nocturnos.Unidades;
 
 import Razas.Unidades;
 
-public class Arquero implements Unidades {
+public class Arquero implements Unidades{
     @Override
     public int Vida(){
         int Vida = 120;
