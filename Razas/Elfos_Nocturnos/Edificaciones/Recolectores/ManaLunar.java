@@ -24,7 +24,7 @@ public class ManaLunar implements Recolectores {
 
     @Override
     public int Construirse() {
-        setVida(3000);
+        setVida(1200);
         return getVida();
     }
 

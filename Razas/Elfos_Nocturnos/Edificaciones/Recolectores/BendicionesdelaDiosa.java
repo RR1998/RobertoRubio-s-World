@@ -23,7 +23,7 @@ public class BendicionesdelaDiosa implements Recolectores {
 
     @Override
     public int Construirse() {
-        setVida(3000);
+        setVida(1500);
         return getVida();
     }
     @Override

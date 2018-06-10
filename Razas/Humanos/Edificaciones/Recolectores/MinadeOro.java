@@ -4,6 +4,24 @@ import Razas.Recolectores;
 
 public class MinadeOro implements Recolectores {
     int Oro;
+    int Vida;
+    public int getVida() {
+        return Vida;
+    }
+
+    public void setVida(int vida) {
+        Vida = vida;
+    }
+
+    @Override
+    public int Construirse() {
+        setVida(1750);
+        return getVida();
+    }
+    @Override
+    public void VidaRestante(int Dano){
+        setVida(Vida - Dano);
+    }
 
     public int getOro() {
         return Oro;
