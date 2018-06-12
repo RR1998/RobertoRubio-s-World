@@ -6,19 +6,55 @@ import Interfaces.Unidades;
  */
 
 public class Brujo implements Unidades {
-    @Override
-    public int Vida(){
-        int Vida = 70;
+    int Vida;
+    int DanoU;
+    int TiempoCreacion;
+
+    public int getVida() {
         return Vida;
     }
-    @Override
-    public int Dano(){
-        int Dano = 160;
-        return Dano;
+
+    public void setVida(int vida) {
+        Vida = vida;
     }
+
+    public int getDanoU() {
+        return DanoU;
+    }
+
+    public void setDanoU(int danoU) {
+        DanoU = danoU;
+    }
+
+    public int getTiempoCreacion() {
+        return TiempoCreacion;
+    }
+
+    public void setTiempoCreacion(int tiempoCreacion) {
+        TiempoCreacion = tiempoCreacion;
+    }
+
     @Override
-    public int TiempoCreacion(){
-        int Tiempo = 3;
-        return Tiempo;
+    public int Crear(){
+        setVida(70);
+        return getVida();
+    }
+
+    @Override
+    public int Dano (){
+        setDanoU(160);
+        return getDanoU();
+    }
+
+    @Override
+    public void VidaRestante(int Dano){
+        setVida(getVida()-Dano);
+    }
+
+    @Override
+    public int TiempoCreacion (){
+        setTiempoCreacion(2);
+        return getTiempoCreacion();
     }
 }
+

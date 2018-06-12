@@ -5,19 +5,54 @@ package Razas.Orcos.Vehiculos;
 import Interfaces.Unidades;
 
 public class BestiasKodo implements Unidades {
-    @Override
-    public int Vida(){
-        int Vida = 700;
+    int Vida;
+    int DanoU;
+    int TiempoCreacion;
+
+    public int getVida() {
         return Vida;
     }
-    @Override
-    public int Dano(){
-        int Dano = 40;
-        return Dano;
+
+    public void setVida(int vida) {
+        Vida = vida;
     }
+
+    public int getDanoU() {
+        return DanoU;
+    }
+
+    public void setDanoU(int danoU) {
+        DanoU = danoU;
+    }
+
+    public int getTiempoCreacion() {
+        return TiempoCreacion;
+    }
+
+    public void setTiempoCreacion(int tiempoCreacion) {
+        TiempoCreacion = tiempoCreacion;
+    }
+
     @Override
-    public int TiempoCreacion(){
-        int Tiempo = 6;
-        return Tiempo;
+    public int Crear(){
+        setVida(700);
+        return getVida();
+    }
+
+    @Override
+    public int Dano (){
+        setDanoU(40);
+        return getDanoU();
+    }
+
+    @Override
+    public void VidaRestante(int Dano){
+        setVida(getVida()-Dano);
+    }
+
+    @Override
+    public int TiempoCreacion (){
+        setTiempoCreacion(6);
+        return getTiempoCreacion();
     }
 }

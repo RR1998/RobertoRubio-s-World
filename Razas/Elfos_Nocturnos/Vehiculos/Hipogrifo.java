@@ -7,17 +7,54 @@ package Razas.Elfos_Nocturnos.Vehiculos;
 import Interfaces.Unidades;
 
 public class Hipogrifo implements Unidades {
-    @Override
-    public int Vida(){
-        int Vida = 500;
+    int Vida;
+    int DanoU;
+    int TiempoCreacion;
+
+    public int getVida() {
         return Vida;
     }
-    public int Dano(){
-        int Dano = 100;
-        return Dano;
+
+    public void setVida(int vida) {
+        Vida = vida;
     }
-    public int TiempoCreacion(){
-        int Tiempo = 4;
-        return Tiempo;
+
+    public int getDanoU() {
+        return DanoU;
+    }
+
+    public void setDanoU(int danoU) {
+        DanoU = danoU;
+    }
+
+    public int getTiempoCreacion() {
+        return TiempoCreacion;
+    }
+
+    public void setTiempoCreacion(int tiempoCreacion) {
+        TiempoCreacion = tiempoCreacion;
+    }
+
+    @Override
+    public int Crear(){
+        setVida(500);
+        return getVida();
+    }
+
+    @Override
+    public int Dano (){
+        setDanoU(100);
+        return getDanoU();
+    }
+
+    @Override
+    public void VidaRestante(int Dano){
+        setVida(getVida()-Dano);
+    }
+
+    @Override
+    public int TiempoCreacion (){
+        setTiempoCreacion(4);
+        return getTiempoCreacion();
     }
 }

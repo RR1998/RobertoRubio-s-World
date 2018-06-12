@@ -47,7 +47,7 @@ public class SablesLunaplata implements Unidades {
     }
     @Override
     public int TiempoCreacion (){
-        setTiempoCreacion(2);
+        setTiempoCreacion(3);
         return getTiempoCreacion();
     }
 }

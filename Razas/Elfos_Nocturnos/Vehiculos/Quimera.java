@@ -7,19 +7,51 @@ package Razas.Elfos_Nocturnos.Vehiculos;
 import Interfaces.Unidades;
 
 public class Quimera implements Unidades {
-    @Override
-    public int Vida (){
-        int Vida = 600;
+    int Vida;
+    int DanoU;
+    int TiempoCreacion;
+
+    public int getVida() {
         return Vida;
     }
+
+    public void setVida(int vida) {
+        Vida = vida;
+    }
+
+    public int getDanoU() {
+        return DanoU;
+    }
+
+    public void setDanoU(int danoU) {
+        DanoU = danoU;
+    }
+
+    public int getTiempoCreacion() {
+        return TiempoCreacion;
+    }
+
+    public void setTiempoCreacion(int tiempoCreacion) {
+        TiempoCreacion = tiempoCreacion;
+    }
+
     @Override
-    public int Dano(){
-        int Dano = 150;
-        return Dano;
+    public int Crear(){
+        setVida(600);
+        return getVida();
     }
     @Override
-    public int TiempoCreacion(){
-        int Tiempo = 5;
-        return Tiempo;
+    public int Dano (){
+        setDanoU(250);
+        return getDanoU();
+    }
+    @Override
+    public void VidaRestante(int Dano){
+        setVida(getVida()-Dano);
+    }
+    @Override
+    public int TiempoCreacion (){
+        setTiempoCreacion(6);
+        return getTiempoCreacion();
     }
 }
