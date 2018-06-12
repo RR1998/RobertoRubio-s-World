@@ -3,19 +3,51 @@ package Razas.Elfos_Nocturnos.Unidades;
 import Interfaces.Unidades;
 
 public class SablesLunaplata implements Unidades {
-    @Override
-    public int Vida(){
-        int Vida = 250;
+    int Vida;
+    int DanoU;
+    int TiempoCreacion;
+
+    public int getVida() {
         return Vida;
+    }
+
+    public void setVida(int vida) {
+        Vida = vida;
+    }
+
+    public int getDanoU() {
+        return DanoU;
+    }
+
+    public void setDanoU(int danoU) {
+        DanoU = danoU;
+    }
+
+    public int getTiempoCreacion() {
+        return TiempoCreacion;
+    }
+
+    public void setTiempoCreacion(int tiempoCreacion) {
+        TiempoCreacion = tiempoCreacion;
+    }
+
+    @Override
+    public int Crear(){
+        setVida(255);
+        return getVida();
     }
     @Override
     public int Dano (){
-        int Dano = 50;
-        return Dano;
+        setDanoU(50);
+        return getDanoU();
+    }
+    @Override
+    public void VidaRestante(int Dano){
+        setVida(getVida()-Dano);
     }
     @Override
     public int TiempoCreacion (){
-        int Tiempo = 2;
-        return Tiempo;
+        setTiempoCreacion(2);
+        return getTiempoCreacion();
     }
 }

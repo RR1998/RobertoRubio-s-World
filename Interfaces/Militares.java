@@ -1,5 +1,5 @@
 package Interfaces;
 
-public interface Militares extends Construcciones{
+public interface Militares extends Generacion {
     void crear(String Type);
 }

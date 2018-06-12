@@ -14,8 +14,7 @@ public class Granja implements Recolectores {
         Vida = vida;
     }
 
-    @Override
-    public int Construirse() {
+    public int Crear() {
         setVida(1900);
         return getVida();
     }

@@ -13,8 +13,7 @@ public class MinadeOro implements Recolectores {
         Vida = vida;
     }
 
-    @Override
-    public int Construirse() {
+    public int Crear() {
         setVida(1750);
         return getVida();
     }

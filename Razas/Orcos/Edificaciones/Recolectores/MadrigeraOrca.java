@@ -22,14 +22,13 @@ public class MadrigeraOrca implements Recolectores {
         Vida = vida;
     }
 
-    @Override
-    public int Construirse() {
+    public int Crear() {
         setVida(1400);
         return getVida();
     }
     @Override
     public void VidaRestante(int Dano){
-        setVida(Vida - Dano);
+        setVida(getVida()-Dano);
     }
 
     @Override

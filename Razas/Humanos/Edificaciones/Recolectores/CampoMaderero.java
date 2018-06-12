@@ -13,8 +13,7 @@ public class CampoMaderero implements Recolectores {
         Vida = vida;
     }
 
-    @Override
-    public int Construirse() {
+    public int Crear() {
         setVida(2000);
         return getVida();
     }

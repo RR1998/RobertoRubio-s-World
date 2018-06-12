@@ -7,19 +7,54 @@ package Razas.Elfos_Nocturnos.Unidades;
 import Interfaces.Unidades;
 
 public class Arquero implements Unidades{
-    @Override
-    public int Vida(){
-        int Vida = 120;
+    int Vida;
+    int DanoU;
+    int TiempoCreacion;
+
+    public int getVida() {
         return Vida;
     }
+
+    public void setVida(int vida) {
+        Vida = vida;
+    }
+
+    public int getDanoU() {
+        return DanoU;
+    }
+
+    public void setDanoU(int danoU) {
+        DanoU = danoU;
+    }
+
+    public int getTiempoCreacion() {
+        return TiempoCreacion;
+    }
+
+    public void setTiempoCreacion(int tiempoCreacion) {
+        TiempoCreacion = tiempoCreacion;
+    }
+
+
+    @Override
+    public int Crear() {
+        setVida(150);
+        return getVida();
+    }
+
+    @Override
+    public void VidaRestante(int Dano){
+        setVida(getVida()-Dano);
+    }
+
     @Override
     public int Dano(){
-        int Dano = 30;
-        return Dano;
+        setDanoU(40);
+        return getDanoU();
     }
     @Override
     public int TiempoCreacion(){
-        int Tiempo = 2;
-        return Tiempo;
+        setTiempoCreacion(2);
+        return getTiempoCreacion();
     }
 }

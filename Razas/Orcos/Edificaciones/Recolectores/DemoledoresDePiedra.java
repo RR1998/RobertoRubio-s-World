@@ -22,14 +22,13 @@ public class DemoledoresDePiedra implements Recolectores {
         Vida = vida;
     }
 
-    @Override
-    public int Construirse() {
+    public int Crear() {
         setVida(1800);
         return getVida();
     }
     @Override
     public void VidaRestante(int Dano){
-        setVida(Vida - Dano);
+        setVida(getVida()-Dano);
     }
 
     @Override

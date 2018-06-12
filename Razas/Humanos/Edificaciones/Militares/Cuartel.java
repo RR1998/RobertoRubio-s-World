@@ -16,13 +16,13 @@ public class Cuartel implements Militares {
     }
 
     @Override
-    public int Construirse() {
+    public int Crear() {
         setVida(3500);
         return getVida();
     }
     @Override
     public void VidaRestante(int Dano){
-        setVida(Vida - Dano);
+        setVida(getVida()-Dano);;
     }
 
     @Override
