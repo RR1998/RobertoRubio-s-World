@@ -4,6 +4,8 @@ package Razas.Humanos.Unidades;
  */
 import Interfaces.Unidades;
 
+import java.util.ArrayList;
+
 public class Fusilero implements Unidades{
     int Vida;
     int DanoU;
@@ -34,7 +36,7 @@ public class Fusilero implements Unidades{
     }
 
     @Override
-    public int Crear(){
+    public ArrayList<Integer> Crear(){
         setVida(100);
         return getVida();
     }

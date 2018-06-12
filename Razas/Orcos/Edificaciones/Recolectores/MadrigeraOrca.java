@@ -2,6 +2,8 @@ package Razas.Orcos.Edificaciones.Recolectores;
 
 import Interfaces.Recolectores;
 
+import java.util.ArrayList;
+
 public class MadrigeraOrca implements Recolectores {
     int Esclavos;
     int Vida;
@@ -22,7 +24,7 @@ public class MadrigeraOrca implements Recolectores {
         Vida = vida;
     }
 
-    public int Crear() {
+    public ArrayList<Integer> Crear() {
         setVida(1400);
         return getVida();
     }

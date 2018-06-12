@@ -1,6 +1,5 @@
 package Interfaces;
 
-public interface Mando extends Generacion {
-    //void Crear();
+public interface Mando extends Creacion {
     void Almacenamiento();
 }

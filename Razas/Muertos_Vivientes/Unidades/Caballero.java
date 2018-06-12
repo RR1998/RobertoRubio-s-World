@@ -4,6 +4,8 @@ package Razas.Muertos_Vivientes.Unidades;
  */
 import Interfaces.Unidades;
 
+import java.util.ArrayList;
+
 public class Caballero implements Unidades {
     int Vida;
     int DanoU;
@@ -34,7 +36,7 @@ public class Caballero implements Unidades {
     }
 
     @Override
-    public int Crear(){
+    public ArrayList<Integer> Crear(){
         setVida(500);
         return getVida();
     }

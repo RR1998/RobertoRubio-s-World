@@ -4,6 +4,8 @@ package Razas.Muertos_Vivientes.Unidades;
 */
 import Interfaces.Unidades;
 
+import java.util.ArrayList;
+
 public class Necromancer implements Unidades {
     int Vida;
     int DanoU;
@@ -34,7 +36,7 @@ public class Necromancer implements Unidades {
     }
 
     @Override
-    public int Crear(){
+    public ArrayList<Integer> Crear(){
         setVida(100);
         return getVida();
     }

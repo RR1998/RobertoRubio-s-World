@@ -5,6 +5,8 @@ package Razas.Muertos_Vivientes.Unidades;
 
 import Interfaces.Unidades;
 
+import java.util.ArrayList;
+
 public class Abominacion implements Unidades {
     int Vida;
     int DanoU;
@@ -35,7 +37,7 @@ public class Abominacion implements Unidades {
     }
 
     @Override
-    public int Crear(){
+    public ArrayList<Integer> Crear(){
         setVida(400);
         return getVida();
     }

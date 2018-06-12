@@ -5,7 +5,7 @@ package Interfaces;
  */
 
 
-public interface Unidades extends Generacion {
+public interface Unidades extends Creacion {
     int Dano();
     int TiempoCreacion();
 }

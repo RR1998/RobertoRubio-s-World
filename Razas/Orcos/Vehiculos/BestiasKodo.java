@@ -4,6 +4,8 @@ package Razas.Orcos.Vehiculos;
  */
 import Interfaces.Unidades;
 
+import java.util.ArrayList;
+
 public class BestiasKodo implements Unidades {
     int Vida;
     int DanoU;
@@ -34,7 +36,7 @@ public class BestiasKodo implements Unidades {
     }
 
     @Override
-    public int Crear(){
+    public ArrayList<Integer> Crear(){
         setVida(700);
         return getVida();
     }

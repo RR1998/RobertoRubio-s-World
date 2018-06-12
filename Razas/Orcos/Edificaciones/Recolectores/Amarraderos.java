@@ -2,6 +2,8 @@ package Razas.Orcos.Edificaciones.Recolectores;
 
 import Interfaces.Recolectores;
 
+import java.util.ArrayList;
+
 public class Amarraderos implements Recolectores{
     int Amarras;
     int Vida;
@@ -22,7 +24,7 @@ public class Amarraderos implements Recolectores{
         Vida = vida;
     }
 
-    public int Crear() {
+    public ArrayList<Integer> Crear() {
         setVida(1500);
         return getVida();
     }

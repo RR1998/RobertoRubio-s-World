@@ -2,16 +2,12 @@ package Razas.Elfos_Nocturnos.Edificaciones.Recolectores;
 
 import Interfaces.Recolectores;
 
+import java.util.ArrayList;
+
 public class BendicionesdelaDiosa implements Recolectores {
     int BendicionesdelaDiosa;
     int Vida;
-    public int getVida() {
-        return Vida;
-    }
-
-    public void setVida(int vida) {
-        this.Vida = vida;
-    }
+    ArrayList<Integer> Creado = new ArrayList<Integer>();
 
     public int getBendicionesdelaDiosa() {
         return BendicionesdelaDiosa;
@@ -21,10 +17,26 @@ public class BendicionesdelaDiosa implements Recolectores {
         BendicionesdelaDiosa = bendicionesdelaDiosa;
     }
 
-    public int Crear() {
-        setVida(1500);
-        return getVida();
+    public int getVida() {
+        return Vida;
     }
+
+    public void setVida(int vida) {
+        Vida = vida;
+    }
+
+    //Nomenclatura de cosotos  Vida Recurso1, Recurso2, Recurso3
+
+    @Override
+    public ArrayList<Integer> Crear(){
+        setVida(3300);
+        Creado.add(0,getVida());
+        Creado.add(1,80);
+        Creado.add(2,50);
+        Creado.add(3,10);
+        return Creado;
+    }
+
     @Override
     public void VidaRestante(int Dano){
         setVida(getVida()-Dano);

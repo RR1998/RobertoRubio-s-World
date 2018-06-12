@@ -1,7 +1,7 @@
 package Razas.Muertos_Vivientes.Edificaciones;
 
 import Interfaces.ConstrucFactory;
-import Interfaces.Generacion;
+import Interfaces.Creacion;
 import Razas.Muertos_Vivientes.Edificaciones.Militares.*;
 import Razas.Muertos_Vivientes.Edificaciones.Recolectores.CanalizadorOscuro;
 import Razas.Muertos_Vivientes.Edificaciones.Recolectores.ProfanadorDeAlmas;
@@ -9,17 +9,17 @@ import Razas.Muertos_Vivientes.Edificaciones.Recolectores.ProfanadorDeAlmas;
 
 public class ConstruccionesMuertos implements ConstrucFactory {
     @Override
-    public Generacion getCElfo(String Type){
+    public Creacion getCElfo(String Type){
         return null;
     }
 
     @Override
-    public Generacion getCHumano(String Type){
+    public Creacion getCHumano(String Type){
         return null;
     }
 
     @Override
-    public Generacion getCMuerto(String Type){
+    public Creacion getCMuerto(String Type){
         switch (Type){
             case "Casa de Tortura":
                 return new CasaDeTortura();
@@ -36,7 +36,7 @@ public class ConstruccionesMuertos implements ConstrucFactory {
     }
 
     @Override
-    public Generacion getCOrco(String Type){
+    public Creacion getCOrco(String Type){
         return null;
     }
 }

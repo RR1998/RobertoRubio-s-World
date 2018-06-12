@@ -2,6 +2,8 @@ package Razas.Muertos_Vivientes.Edificaciones.Recolectores;
 
 import Interfaces.Recolectores;
 
+import java.util.ArrayList;
+
 public class Cementerio implements Recolectores {
     int Cadaveres;
     int Vida;
@@ -22,7 +24,7 @@ public class Cementerio implements Recolectores {
         Vida = vida;
     }
 
-    public int Crear() {
+    public ArrayList<Integer> Crear() {
         setVida(1600);
         return getVida();
     }

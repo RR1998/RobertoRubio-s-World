@@ -5,6 +5,8 @@ import Interfaces.Unidades;
 import Interfaces.UnitFactory;
 import Razas.UnitProducer;
 
+import java.util.ArrayList;
+
 public class Bestiario implements Militares {
     int Vida;
 
@@ -17,7 +19,7 @@ public class Bestiario implements Militares {
     }
 
     @Override
-    public int Crear() {
+    public ArrayList<Integer> Crear() {
         setVida(1700);
         return getVida();
     }
@@ -26,7 +28,7 @@ public class Bestiario implements Militares {
         setVida(getVida()-Dano);
     }
     @Override
-    public void crear (String Type){
+    public void Entrenar(String Type){
         UnitFactory Orcos;
         Orcos = UnitProducer.getUnit("Orcos");
         Unidades Bestias = Orcos.getOrco(Type);

@@ -6,10 +6,13 @@ package Razas.Elfos_Nocturnos.Unidades;
 
 import Interfaces.Unidades;
 
+import java.util.ArrayList;
+
 public class Arquero implements Unidades{
     int Vida;
     int DanoU;
     int TiempoCreacion;
+    ArrayList<Integer> Creado = new ArrayList<Integer>();
 
     public int getVida() {
         return Vida;
@@ -36,10 +39,17 @@ public class Arquero implements Unidades{
     }
 
 
+
+    //Nomenclatura de cosotos  Vida Recurso1, Recurso2, Recurso3
+
     @Override
-    public int Crear() {
+    public ArrayList<Integer> Crear(){
         setVida(150);
-        return getVida();
+        Creado.add(0,getVida());
+        Creado.add(1,30);
+        Creado.add(2,50);
+        Creado.add(3,60);
+        return Creado;
     }
 
     @Override

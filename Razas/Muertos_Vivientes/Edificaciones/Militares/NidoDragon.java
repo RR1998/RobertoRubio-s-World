@@ -5,6 +5,8 @@ import Interfaces.Unidades;
 import Interfaces.UnitFactory;
 import Razas.UnitProducer;
 
+import java.util.ArrayList;
+
 public class NidoDragon implements Militares {
     int Vida;
     public int getVida() {
@@ -16,7 +18,7 @@ public class NidoDragon implements Militares {
     }
 
     @Override
-    public int Crear() {
+    public ArrayList<Integer> Crear() {
         setVida(2150);
         return getVida();
     }
@@ -25,7 +27,7 @@ public class NidoDragon implements Militares {
         setVida(getVida()-Dano);
     }
     @Override
-    public void crear(String Type){
+    public void Entrenar(String Type){
         UnitFactory Muertos;
         Muertos = UnitProducer.getUnit("Muertos");
         Unidades Dragon = Muertos.getMuerto(Type);

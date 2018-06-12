@@ -1,6 +1,8 @@
 package Razas.Orcos.Unidades;
 
 import Interfaces.Unidades;
+
+import java.util.ArrayList;
 /*
  *@Autor Roberto Alexander Rubio Castillo <00259517@uca.edu.sv>
  */
@@ -35,7 +37,7 @@ public class Brujo implements Unidades {
     }
 
     @Override
-    public int Crear(){
+    public ArrayList<Integer> Crear(){
         setVida(70);
         return getVida();
     }

@@ -2,6 +2,8 @@ package Razas.Muertos_Vivientes.Edificaciones.Recolectores;
 
 import Interfaces.Recolectores;
 
+import java.util.ArrayList;
+
 public class CanalizadorOscuro implements Recolectores {
     int MagiaNegra;
     int Vida;
@@ -23,7 +25,7 @@ public class CanalizadorOscuro implements Recolectores {
         Vida = vida;
     }
 
-    public int Crear() {
+    public ArrayList<Integer> Crear() {
         setVida(1700);
         return getVida();
     }

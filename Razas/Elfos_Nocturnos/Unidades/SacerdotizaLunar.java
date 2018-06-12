@@ -2,10 +2,13 @@ package Razas.Elfos_Nocturnos.Unidades;
 
 import Interfaces.Unidades;
 
+import java.util.ArrayList;
+
 public class SacerdotizaLunar implements Unidades {
     int Vida;
     int DanoU;
     int TiempoCreacion;
+    ArrayList<Integer> Creado = new ArrayList<Integer>();
 
     public int getVida() {
         return Vida;
@@ -31,12 +34,18 @@ public class SacerdotizaLunar implements Unidades {
         TiempoCreacion = tiempoCreacion;
     }
 
+    //Nomenclatura de cosotos  Vida Recurso1, Recurso2, Recurso3
 
     @Override
-    public int Crear(){
-        setVida(255);
-        return getVida();
+    public ArrayList<Integer> Crear(){
+        setVida(250);
+        Creado.add(0,getVida());
+        Creado.add(1,100);
+        Creado.add(2,90);
+        Creado.add(3,80);
+        return Creado;
     }
+
     @Override
     public int Dano (){
         setDanoU(80);

@@ -5,6 +5,8 @@ package Razas.Humanos.Unidades;
 
 import Interfaces.Unidades;
 
+import java.util.ArrayList;
+
 public class SoldadoRaso implements Unidades {
     int Vida;
     int DanoU;
@@ -35,7 +37,7 @@ public class SoldadoRaso implements Unidades {
     }
 
     @Override
-    public int Crear(){
+    public ArrayList<Integer> Crear(){
         setVida(200);
         return getVida();
     }

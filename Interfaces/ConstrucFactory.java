@@ -1,8 +1,8 @@
 package Interfaces;
 
 public interface ConstrucFactory {
-    Generacion getCElfo(String Type);
-    Generacion getCHumano(String Type);
-    Generacion getCMuerto(String Type);
-    Generacion getCOrco(String Type);
+    Creacion getCElfo(String Type);
+    Creacion getCHumano(String Type);
+    Creacion getCMuerto(String Type);
+    Creacion getCOrco(String Type);
 }

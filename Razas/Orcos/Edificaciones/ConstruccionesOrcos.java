@@ -1,29 +1,29 @@
 package Razas.Orcos.Edificaciones;
 
 import Interfaces.ConstrucFactory;
-import Interfaces.Generacion;
+import Interfaces.Creacion;
 import Razas.Orcos.Edificaciones.Militares.*;
 import Razas.Orcos.Edificaciones.Recolectores.*;
 
 
 public class ConstruccionesOrcos implements ConstrucFactory {
     @Override
-    public Generacion getCElfo(String Type){
+    public Creacion getCElfo(String Type){
         return null;
     }
 
     @Override
-    public Generacion getCHumano(String Type){
+    public Creacion getCHumano(String Type){
         return null;
     }
 
     @Override
-    public Generacion getCMuerto(String Type){
+    public Creacion getCMuerto(String Type){
         return null;
     }
 
     @Override
-    public Generacion getCOrco(String Type){
+    public Creacion getCOrco(String Type){
         switch (Type){
             case "Bestiario":
                 return new Bestiario();
