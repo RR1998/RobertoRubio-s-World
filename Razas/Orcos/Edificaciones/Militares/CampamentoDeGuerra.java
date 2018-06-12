@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class CampamentoDeGuerra implements Militares {
     int Vida;
+    ArrayList<Integer> Creado = new ArrayList<Integer>();
 
     public int getVida() {
         return Vida;
@@ -18,11 +19,18 @@ public class CampamentoDeGuerra implements Militares {
         Vida = vida;
     }
 
+    //Nomenclatura de cosotos  Vida Recurso1, Recurso2, Recurso3
+
     @Override
-    public ArrayList<Integer> Crear() {
-        setVida(1800);
-        return getVida();
+    public ArrayList<Integer> Crear(){
+        setVida(2500);
+        Creado.add(0,getVida());
+        Creado.add(1,140);
+        Creado.add(2,90);
+        Creado.add(3,50);
+        return Creado;
     }
+
     @Override
     public void VidaRestante(int Dano){
         setVida(getVida()-Dano);

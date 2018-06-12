@@ -10,6 +10,7 @@ public class Fusilero implements Unidades{
     int Vida;
     int DanoU;
     int TiempoCreacion;
+    ArrayList<Integer> Creado = new ArrayList<Integer>();
 
     public int getVida() {
         return Vida;
@@ -35,10 +36,18 @@ public class Fusilero implements Unidades{
         TiempoCreacion = tiempoCreacion;
     }
 
+
+
+    //Nomenclatura de cosotos  Vida Recurso1, Recurso2, Recurso3
+
     @Override
     public ArrayList<Integer> Crear(){
-        setVida(100);
-        return getVida();
+        setVida(150);
+        Creado.add(0,getVida());
+        Creado.add(1,50);
+        Creado.add(2,60);
+        Creado.add(3,40);
+        return Creado;
     }
     @Override
     public int Dano (){

@@ -11,6 +11,7 @@ public class SoldadoRaso implements Unidades {
     int Vida;
     int DanoU;
     int TiempoCreacion;
+    ArrayList<Integer> Creado = new ArrayList<Integer>();
 
     public int getVida() {
         return Vida;
@@ -36,10 +37,18 @@ public class SoldadoRaso implements Unidades {
         TiempoCreacion = tiempoCreacion;
     }
 
+
+
+    //Nomenclatura de cosotos  Vida Recurso1, Recurso2, Recurso3
+
     @Override
     public ArrayList<Integer> Crear(){
-        setVida(200);
-        return getVida();
+        setVida(150);
+        Creado.add(0,getVida());
+        Creado.add(1,30);
+        Creado.add(2,40);
+        Creado.add(3,30);
+        return Creado;
     }
 
     @Override

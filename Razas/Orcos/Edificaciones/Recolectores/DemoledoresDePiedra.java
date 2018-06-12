@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class DemoledoresDePiedra implements Recolectores {
     int Piedra;
     int Vida;
+    ArrayList<Integer> Creado = new ArrayList<Integer>();
 
     public int getPiedra() {
         return Piedra;
@@ -24,10 +25,18 @@ public class DemoledoresDePiedra implements Recolectores {
         Vida = vida;
     }
 
-    public ArrayList<Integer> Crear() {
-        setVida(1800);
-        return getVida();
+    //Nomenclatura de cosotos  Vida Recurso1, Recurso2, Recurso3
+
+    @Override
+    public ArrayList<Integer> Crear(){
+        setVida(2500);
+        Creado.add(0,getVida());
+        Creado.add(1,90);
+        Creado.add(2,50);
+        Creado.add(3,55);
+        return Creado;
     }
+
     @Override
     public void VidaRestante(int Dano){
         setVida(getVida()-Dano);

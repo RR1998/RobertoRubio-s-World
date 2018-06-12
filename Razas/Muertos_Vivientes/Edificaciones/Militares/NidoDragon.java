@@ -9,6 +9,8 @@ import java.util.ArrayList;
 
 public class NidoDragon implements Militares {
     int Vida;
+    ArrayList<Integer> Creado = new ArrayList<Integer>();
+
     public int getVida() {
         return Vida;
     }
@@ -17,11 +19,18 @@ public class NidoDragon implements Militares {
         Vida = vida;
     }
 
+    //Nomenclatura de cosotos  Vida Recurso1, Recurso2, Recurso3
+
     @Override
-    public ArrayList<Integer> Crear() {
-        setVida(2150);
-        return getVida();
+    public ArrayList<Integer> Crear(){
+        setVida(3000);
+        Creado.add(0,getVida());
+        Creado.add(1,160);
+        Creado.add(2,115);
+        Creado.add(3,75);
+        return Creado;
     }
+
     @Override
     public void VidaRestante(int Dano){
         setVida(getVida()-Dano);

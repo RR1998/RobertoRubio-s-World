@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class Amarraderos implements Recolectores{
     int Amarras;
     int Vida;
+    ArrayList<Integer> Creado = new ArrayList<Integer>();
 
     public int getAmarras() {
         return Amarras;
@@ -24,9 +25,16 @@ public class Amarraderos implements Recolectores{
         Vida = vida;
     }
 
-    public ArrayList<Integer> Crear() {
-        setVida(1500);
-        return getVida();
+    //Nomenclatura de cosotos  Vida Recurso1, Recurso2, Recurso3
+
+    @Override
+    public ArrayList<Integer> Crear(){
+        setVida(2500);
+        Creado.add(0,getVida());
+        Creado.add(1,50);
+        Creado.add(2,30);
+        Creado.add(3,40);
+        return Creado;
     }
 
     @Override

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class MadrigeraOrca implements Recolectores {
     int Esclavos;
     int Vida;
-
+    ArrayList<Integer> Creado = new ArrayList<Integer>();
 
     public int getEsclavos() {
         return Esclavos;
@@ -16,6 +16,7 @@ public class MadrigeraOrca implements Recolectores {
     public void setEsclavos(int esclavos) {
         Esclavos = esclavos;
     }
+
     public int getVida() {
         return Vida;
     }
@@ -24,10 +25,18 @@ public class MadrigeraOrca implements Recolectores {
         Vida = vida;
     }
 
-    public ArrayList<Integer> Crear() {
-        setVida(1400);
-        return getVida();
+    //Nomenclatura de cosotos  Vida Recurso1, Recurso2, Recurso3
+
+    @Override
+    public ArrayList<Integer> Crear(){
+        setVida(2500);
+        Creado.add(0,getVida());
+        Creado.add(1,70);
+        Creado.add(2,60);
+        Creado.add(3,40);
+        return Creado;
     }
+
     @Override
     public void VidaRestante(int Dano){
         setVida(getVida()-Dano);

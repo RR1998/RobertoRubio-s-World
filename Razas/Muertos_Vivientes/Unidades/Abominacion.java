@@ -11,6 +11,7 @@ public class Abominacion implements Unidades {
     int Vida;
     int DanoU;
     int TiempoCreacion;
+    ArrayList<Integer> Creado = new ArrayList<Integer>();
 
     public int getVida() {
         return Vida;
@@ -36,10 +37,16 @@ public class Abominacion implements Unidades {
         TiempoCreacion = tiempoCreacion;
     }
 
+    //Nomenclatura de cosotos  Vida Recurso1, Recurso2, Recurso3
+
     @Override
     public ArrayList<Integer> Crear(){
-        setVida(400);
-        return getVida();
+        setVida(300);
+        Creado.add(0,getVida());
+        Creado.add(1,90);
+        Creado.add(2,50);
+        Creado.add(3,80);
+        return Creado;
     }
 
     @Override
