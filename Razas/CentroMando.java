@@ -103,7 +103,7 @@ public class CentroMando{
         return GeneracionInicial;
     }
 
-    // Nomenclatura Recursos1, Recursos2, Recursos3, Vida,
+    // Nomenclatura Recursos1, Recursos2, Recursos3, Vida, Nivel
 
     public ArrayList<Integer> Inicio(String Raza) {
         setNivel(0);
@@ -119,7 +119,7 @@ public class CentroMando{
                 GeneracionInicial = AlmacenadoInicial(300, 300, 300);
                 setVida(6000);
                 setCantidadAlmacenada(GeneracionInicial);
-                GeneracionInicial.add(3, getVida());
+                GeneracionInicial.add( 3, getVida());
                 GeneracionInicial.add(4, getNivel());
                 return getCantidadAlmacenada();
             case "Muertos Vivientes":

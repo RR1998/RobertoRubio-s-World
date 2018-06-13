@@ -1,3 +1,7 @@
+import Razas.CentroMando;
+
+import java.util.Scanner;
+
 public class Juego {
     public void Jugar(){
         System.out.println("Los Elfos de la Noche\n");
@@ -21,11 +25,61 @@ public class Juego {
                 "los orcos son feroces gerreros, despiadados en el campo de batalla y sangrientos mas que nadie se caracterizan\n" +
                 "por sus escaramuzas veloces y debastadoras y por colocar sus poderosas barricadas anti-peronal para defender sus construcciones\n" +
                 "esta civilizacion esta hecha para hacer ataques rapidos y destruir a sus enemigos de manera sopresi\n");
-        System.out.println("Jugador 1 seleccione su raza por favor entre las siguientes opciones");
-        System.out.println("1. Elfos de la Noche");
-        System.out.println("2. Humanos");
-        System.out.println("3. Muertos Vivientes");
-        System.out.println("4. Orcos");
+        Scanner Scanner = new Scanner(System.in);
 
+        for(int i = 0; i<2; i++) {
+            System.out.println("Jugador" + i++ + "seleccione su raza por favor entre las siguientes opciones");
+            System.out.println("1. Elfos de la Noche");
+            System.out.println("2. Humanos");
+            System.out.println("3. Muertos Vivientes");
+            System.out.println("4. Orcos");
+            i--;
+            String Jugador = Scanner.nextLine();
+            int Opcion;
+            try{
+                Opcion = Integer.parseInt(Jugador);
+                if(i == 0 && Opcion < 5 && Opcion > 0) {
+                    CentroMando Jugador1= new CentroMando();
+                    switch(Opcion){
+                        case 1:
+                            Jugador1.Inicio("Elfo");
+                            System.out.println(Jugador1.getCantidadAlmacenada().get(0));
+                            break;
+                        case 2:
+                            Jugador1.Inicio("Humano");
+                            break;
+                        case 3:
+                            Jugador1.Inicio("Muertos Vivientes");
+                            break;
+                        case 4:
+                            Jugador1.Inicio("Orcos");
+                            break;
+                    }
+                }
+                if(i == 1 && Opcion < 5 && Opcion > 0){
+                    CentroMando Jugador2= new CentroMando();
+                    switch(Opcion){
+                        case 1:
+                            Jugador2.Inicio("Elfo");
+                            break;
+                        case 2:
+                            Jugador2.Inicio("Humano");
+                            break;
+                        case 3:
+                            Jugador2.Inicio("Muertos Vivientes");
+                            break;
+                        case 4:
+                            Jugador2.Inicio("Orcos");
+                            break;
+                    }
+                }
+                else{
+                    System.out.println("Ingrese un numero que se encuentre en el menu por favor");
+                }
+            }
+            catch (NumberFormatException e){
+                System.out.println("Ingrese un numero que se encuentre en el menu por favor");
+            }
+        }
     }
 }
