@@ -1,5 +1,3 @@
-import Razas.CentroMando;
-
 import java.util.Scanner;
 
 public class Juego {

@@ -1,5 +1,5 @@
 public class ConversorIDs{
-    public String Conversor(int ID){
+    public static String Conversor(int ID){
         switch (ID){
             case 1:
                 return "Elfos";

@@ -1,4 +1,9 @@
-package Razas;
+import Interfaces.ConstrucFactory;
+import Producers.ConstrucProducer;
+import Razas.Elfos_Nocturnos.Edificaciones.ConstruccionesElfas;
+import Razas.Humanos.Edificaciones.ConstruccionesHumanas;
+import Razas.Muertos_Vivientes.Edificaciones.ConstruccionesMuertos;
+import Razas.Orcos.Edificaciones.ConstruccionesOrcos;
 
 import java.util.ArrayList;
 
@@ -144,4 +149,48 @@ public class CentroMando{
         return null;
     }
 
+    public ConstrucProducer Construir(int ID, String Edificio){
+        String Raza;
+        ConversorIDs Conversor = new ConversorIDs();
+        Raza = Conversor.Conversor(ID);
+        ConstrucProducer Edificios = new ConstrucProducer();
+        ArrayList<Integer> Almacenado = getCantidadAlmacenada();
+        ArrayList<Integer> Costo = new ArrayList<>();
+        ArrayList<Integer> NuevoAlmacen = new ArrayList<>();
+        switch(Raza){
+            case "Elfos":
+                ConstruccionesElfas Elfos = (ConstruccionesElfas) Edificios.getConstruccion(Raza);
+                Costo = Elfos.getCElfo(Edificio).Crear();
+                NuevoAlmacen.add(0, Almacenado.get(0) - Costo.get(0));
+                NuevoAlmacen.add(0, Almacenado.get(1) - Costo.get(1));
+                NuevoAlmacen.add(0, Almacenado.get(2) - Costo.get(2));
+                setCantidadAlmacenada(NuevoAlmacen);
+                return (ConstrucProducer) Elfos.getCElfo(Edificio);
+            case "Humanos":
+                ConstruccionesHumanas Humanos = (ConstruccionesHumanas) Edificios.getConstruccion(Raza);
+                Costo = Humanos.getCHumano(Edificio).Crear();
+                NuevoAlmacen.add(0, Almacenado.get(0) - Costo.get(0));
+                NuevoAlmacen.add(0, Almacenado.get(1) - Costo.get(1));
+                NuevoAlmacen.add(0, Almacenado.get(2) - Costo.get(2));
+                setCantidadAlmacenada(NuevoAlmacen);
+                return (ConstrucProducer) Humanos.getCHumano(Edificio);
+            case "Muertos":
+                ConstruccionesMuertos Muertos = (ConstruccionesMuertos) Edificios.getConstruccion(Raza);
+                Costo = Muertos.getCMuerto(Edificio).Crear();
+                NuevoAlmacen.add(0, Almacenado.get(0) - Costo.get(0));
+                NuevoAlmacen.add(0, Almacenado.get(1) - Costo.get(1));
+                NuevoAlmacen.add(0, Almacenado.get(2) - Costo.get(2));
+                setCantidadAlmacenada(NuevoAlmacen);
+                return (ConstrucProducer) Muertos.getCMuerto(Edificio);
+            case "Orcos":
+                ConstruccionesOrcos Orcos = (ConstruccionesOrcos) Edificios.getConstruccion(Raza);
+                Costo = Orcos.getCOrco(Edificio).Crear();
+                NuevoAlmacen.add(0, Almacenado.get(0) - Costo.get(0));
+                NuevoAlmacen.add(0, Almacenado.get(1) - Costo.get(1));
+                NuevoAlmacen.add(0, Almacenado.get(2) - Costo.get(2));
+                setCantidadAlmacenada(NuevoAlmacen);
+                return (ConstrucProducer) Orcos.getCElfo(Edificio);
+        }
+        return null;
+    }
 }
