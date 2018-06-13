@@ -103,7 +103,7 @@ public class CentroMando{
         return GeneracionInicial;
     }
 
-    // Nomenclatura Recursos1, Recursos2, Recursos3, Vida, Nivel
+    // Nomenclatura Recursos1, Recursos2, Recursos3, Vida, Nivel, IDRaza
 
     public ArrayList<Integer> Inicio(String Raza) {
         setNivel(0);
@@ -114,6 +114,7 @@ public class CentroMando{
                 setCantidadAlmacenada(GeneracionInicial);
                 GeneracionInicial.add(3, getVida());
                 GeneracionInicial.add(4, getNivel());
+                GeneracionInicial.add(5, 1);
                 return getCantidadAlmacenada();
             case "Humano":
                 GeneracionInicial = AlmacenadoInicial(300, 300, 300);
@@ -121,6 +122,7 @@ public class CentroMando{
                 setCantidadAlmacenada(GeneracionInicial);
                 GeneracionInicial.add( 3, getVida());
                 GeneracionInicial.add(4, getNivel());
+                GeneracionInicial.add(5, 2);
                 return getCantidadAlmacenada();
             case "Muertos Vivientes":
                 GeneracionInicial = AlmacenadoInicial(300, 300, 300);
@@ -128,6 +130,7 @@ public class CentroMando{
                 setCantidadAlmacenada(GeneracionInicial);
                 GeneracionInicial.add(3, getVida());
                 GeneracionInicial.add(4, getNivel());
+                GeneracionInicial.add(5, 3);
                 return getCantidadAlmacenada();
             case "Orcos":
                 GeneracionInicial = AlmacenadoInicial(300, 300, 300);
@@ -135,6 +138,7 @@ public class CentroMando{
                 setCantidadAlmacenada(GeneracionInicial);
                 GeneracionInicial.add(3, getVida());
                 GeneracionInicial.add(4, getNivel());
+                GeneracionInicial.add(5, 4);
                 return getCantidadAlmacenada();
         }
         return null;

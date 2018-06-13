@@ -39,7 +39,7 @@ public class Juego {
             try{
                 Opcion = Integer.parseInt(Jugador);
                 if(i == 0 && Opcion < 5 && Opcion > 0) {
-                    CentroMando Jugador1= new CentroMando();
+                    CentroMando Jugador1 = new CentroMando();
                     switch(Opcion){
                         case 1:
                             Jugador1.Inicio("Elfo");
@@ -57,7 +57,7 @@ public class Juego {
                     }
                 }
                 if(i == 1 && Opcion < 5 && Opcion > 0){
-                    CentroMando Jugador2= new CentroMando();
+                    CentroMando Jugador2 = new CentroMando();
                     switch(Opcion){
                         case 1:
                             Jugador2.Inicio("Elfo");
