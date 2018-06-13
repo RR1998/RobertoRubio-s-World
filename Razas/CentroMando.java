@@ -2,10 +2,19 @@ package Razas;
 
 import java.util.ArrayList;
 
-public class CentroMando {
+public class CentroMando{
     ArrayList<Integer> CantidadAlmacenar = new ArrayList<>();
     ArrayList<Integer> AlmacenamientoMaximo = new ArrayList<>();
-    int Nivel;
+    ArrayList<Integer> CantidadAlmacenada = new ArrayList<>();
+    int Nivel, Vida;
+
+    public ArrayList<Integer> getCantidadAlmacenada() {
+        return CantidadAlmacenada;
+    }
+
+    public void setCantidadAlmacenada(ArrayList<Integer> cantidadAlmacenada) {
+        CantidadAlmacenada = cantidadAlmacenada;
+    }
 
     public int getNivel() {
         return Nivel;
@@ -22,6 +31,7 @@ public class CentroMando {
     public void setCantidadAlmacenar(ArrayList<Integer> cantidadAlmacenar) {
         CantidadAlmacenar = cantidadAlmacenar;
     }
+
     public ArrayList<Integer> getAlmacenamientoMaximo() {
         return AlmacenamientoMaximo;
     }
@@ -29,6 +39,22 @@ public class CentroMando {
     public void setAlmacenamientoMaximo(ArrayList<Integer> almacenamientoMaximo) {
         AlmacenamientoMaximo = almacenamientoMaximo;
     }
+
+    public void SubirNivel(){
+        int Total, Nivel = getNivel();
+        ArrayList<Integer> Aux;
+        ArrayList<Integer> CantidadAlmacenada;
+        CantidadAlmacenada = getCantidadAlmacenada();
+        Aux = getAlmacenamientoMaximo();
+        Total = (int) Math.round((Aux.get(0)+ Aux.get(1) + Aux.get(2)) * 0.25);
+        if (CantidadAlmacenada.get(0) > (Total/3) && CantidadAlmacenada.get(1) > (Total/3) && CantidadAlmacenada.get(2) > (Total/3)) {
+            setNivel(Nivel++);
+        }
+        else{
+            System.out.println("No tiene los recursos para realizar esta accion");
+        }
+    }
+
     public ArrayList<Integer> AlmacenamientoM(){
         int Nivel = getNivel();
         int Aux1, Aux2, Aux3;
@@ -61,7 +87,16 @@ public class CentroMando {
         Aux.add(2, Recurso3);
         return Aux;
     }
+
+    public ArrayList<Integer> AlmacenadoInicial(int Recurso1, int Recurso2, int Recurso3){
+        CantidadAlmacenar.add(0, Recurso1);
+        CantidadAlmacenar.add(1, Recurso2);
+        CantidadAlmacenar.add(2, Recurso3);
+        return CantidadAlmacenar;
+    }
+
     public ArrayList<Integer> Inicio(String Raza){
+        setNivel(0);
         switch(Raza){
             case "Elfo":
                 return CantidadAlmacenar = AlmacenadoInicial(300, 300, 300);
@@ -73,12 +108,5 @@ public class CentroMando {
                 return CantidadAlmacenar = AlmacenadoInicial(300, 300, 300);
         }
         return null;
-    }
-
-    public ArrayList<Integer> AlmacenadoInicial(int Recurso1, int Recurso2, int Recurso3){
-        CantidadAlmacenar.add(0,Recurso1);
-        CantidadAlmacenar.add(1,Recurso2);
-        CantidadAlmacenar.add(2,Recurso3);
-        return CantidadAlmacenar;
     }
 }
