@@ -49,6 +49,6 @@ public class CanalizadorOscuro implements Recolectores {
 
     @Override
     public void Generar(){
-        setMagiaNegra(30);
+        setMagiaNegra(30 + getMagiaNegra());
     }
 }

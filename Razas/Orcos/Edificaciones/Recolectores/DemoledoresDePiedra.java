@@ -49,6 +49,6 @@ public class DemoledoresDePiedra implements Recolectores {
 
     @Override
     public void Generar(){
-        setPiedra(40);
+        setPiedra(40 + getPiedra());
     }
 }

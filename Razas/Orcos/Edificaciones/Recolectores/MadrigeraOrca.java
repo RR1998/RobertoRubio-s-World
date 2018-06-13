@@ -49,6 +49,6 @@ public class MadrigeraOrca implements Recolectores {
 
     @Override
     public void Generar(){
-        setEsclavos(10);
+        setEsclavos(10 + getEsclavos());
     }
 }

@@ -48,6 +48,6 @@ public class Cementerio implements Recolectores {
 
     @Override
     public void Generar(){
-        setCadaveres(50);
+        setCadaveres(50 + getCadaveres());
     }
 }

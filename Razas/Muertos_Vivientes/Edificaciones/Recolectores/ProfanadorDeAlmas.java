@@ -47,6 +47,6 @@ public class ProfanadorDeAlmas implements Recolectores {
 
     @Override
     public void Generar(){
-        setAlmas(20);
+        setAlmas(20 + getAlmas());
     }
 }

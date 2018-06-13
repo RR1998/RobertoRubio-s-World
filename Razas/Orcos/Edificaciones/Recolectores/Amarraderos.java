@@ -49,6 +49,6 @@ public class Amarraderos implements Recolectores{
 
     @Override
     public void Generar(){
-        setAmarras(50);
+        setAmarras(50 + getAmarras());
     }
 }

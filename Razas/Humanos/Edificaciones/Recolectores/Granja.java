@@ -47,6 +47,6 @@ public class Granja implements Recolectores {
     }
     @Override
     public void Generar(){
-        setTrigo(70);
+        setTrigo(70 + getTrigo());
     }
 }

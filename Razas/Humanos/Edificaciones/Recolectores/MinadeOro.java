@@ -49,6 +49,6 @@ public class MinadeOro implements Recolectores {
 
     @Override
     public void Generar(){
-        setOro(20);
+        setOro(20 + getOro());
     }
 }

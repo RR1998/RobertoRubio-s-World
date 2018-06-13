@@ -3,10 +3,18 @@ package Razas;
 import java.util.ArrayList;
 
 public class CentroMando{
-    ArrayList<Integer> CantidadAlmacenar = new ArrayList<>();
+    ArrayList<Integer> GeneracionInicial = new ArrayList<>();
     ArrayList<Integer> AlmacenamientoMaximo = new ArrayList<>();
     ArrayList<Integer> CantidadAlmacenada = new ArrayList<>();
     int Nivel, Vida;
+
+    public int getVida() {
+        return Vida;
+    }
+
+    public void setVida(int vida) {
+        Vida = vida;
+    }
 
     public ArrayList<Integer> getCantidadAlmacenada() {
         return CantidadAlmacenada;
@@ -24,12 +32,12 @@ public class CentroMando{
         Nivel = nivel;
     }
 
-    public ArrayList<Integer> getCantidadAlmacenar() {
-        return CantidadAlmacenar;
+    public ArrayList<Integer> getGeneracionInicial() {
+        return GeneracionInicial;
     }
 
-    public void setCantidadAlmacenar(ArrayList<Integer> cantidadAlmacenar) {
-        CantidadAlmacenar = cantidadAlmacenar;
+    public void setGeneracionInicial(ArrayList<Integer> generacionInicial) {
+        GeneracionInicial = generacionInicial;
     }
 
     public ArrayList<Integer> getAlmacenamientoMaximo() {
@@ -89,30 +97,44 @@ public class CentroMando{
     }
 
     public ArrayList<Integer> AlmacenadoInicial(int Recurso1, int Recurso2, int Recurso3){
-        CantidadAlmacenar.add(0, Recurso1);
-        CantidadAlmacenar.add(1, Recurso2);
-        CantidadAlmacenar.add(2, Recurso3);
-        return CantidadAlmacenar;
+        GeneracionInicial.add(0, Recurso1);
+        GeneracionInicial.add(1, Recurso2);
+        GeneracionInicial.add(2, Recurso3);
+        return GeneracionInicial;
     }
+
+    // Nomenclatura Recursos1, Recursos2, Recursos3, Vida,
 
     public ArrayList<Integer> Inicio(String Raza) {
         setNivel(0);
         switch (Raza) {
             case "Elfo":
-                CantidadAlmacenar = AlmacenadoInicial(300, 300, 300);
-                setCantidadAlmacenada(CantidadAlmacenar);
+                GeneracionInicial = AlmacenadoInicial(300, 300, 300);
+                setVida(4500);
+                setCantidadAlmacenada(GeneracionInicial);
+                GeneracionInicial.add(3, getVida());
+                GeneracionInicial.add(4, getNivel());
                 return getCantidadAlmacenada();
             case "Humano":
-                CantidadAlmacenar = AlmacenadoInicial(300, 300, 300);
-                setCantidadAlmacenada(CantidadAlmacenar);
+                GeneracionInicial = AlmacenadoInicial(300, 300, 300);
+                setVida(6000);
+                setCantidadAlmacenada(GeneracionInicial);
+                GeneracionInicial.add(3, getVida());
+                GeneracionInicial.add(4, getNivel());
                 return getCantidadAlmacenada();
             case "Muertos Vivientes":
-                CantidadAlmacenar = AlmacenadoInicial(300, 300, 300);
-                setCantidadAlmacenada(CantidadAlmacenar);
+                GeneracionInicial = AlmacenadoInicial(300, 300, 300);
+                setVida(3700);
+                setCantidadAlmacenada(GeneracionInicial);
+                GeneracionInicial.add(3, getVida());
+                GeneracionInicial.add(4, getNivel());
                 return getCantidadAlmacenada();
             case "Orcos":
-                CantidadAlmacenar = AlmacenadoInicial(300, 300, 300);
-                setCantidadAlmacenada(CantidadAlmacenar);
+                GeneracionInicial = AlmacenadoInicial(300, 300, 300);
+                setVida(3000);
+                setCantidadAlmacenada(GeneracionInicial);
+                GeneracionInicial.add(3, getVida());
+                GeneracionInicial.add(4, getNivel());
                 return getCantidadAlmacenada();
         }
         return null;

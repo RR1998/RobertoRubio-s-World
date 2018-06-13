@@ -49,6 +49,6 @@ public class BendicionesdelaDiosa implements Recolectores {
 
     @Override
     public void Generar(){
-        setBendicionesdelaDiosa(10);
+        setBendicionesdelaDiosa(10 + getBendicionesdelaDiosa());
     }
 }
