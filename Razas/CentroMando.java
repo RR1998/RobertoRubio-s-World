@@ -95,18 +95,27 @@ public class CentroMando{
         return CantidadAlmacenar;
     }
 
-    public ArrayList<Integer> Inicio(String Raza){
+    public ArrayList<Integer> Inicio(String Raza) {
         setNivel(0);
-        switch(Raza){
+        switch (Raza) {
             case "Elfo":
-                return CantidadAlmacenar = AlmacenadoInicial(300, 300, 300);
+                CantidadAlmacenar = AlmacenadoInicial(300, 300, 300);
+                setCantidadAlmacenada(CantidadAlmacenar);
+                return getCantidadAlmacenada();
             case "Humano":
-                return CantidadAlmacenar = AlmacenadoInicial(300, 300, 300);
+                CantidadAlmacenar = AlmacenadoInicial(300, 300, 300);
+                setCantidadAlmacenada(CantidadAlmacenar);
+                return getCantidadAlmacenada();
             case "Muertos Vivientes":
-                return CantidadAlmacenar = AlmacenadoInicial(300, 300, 300);
+                CantidadAlmacenar = AlmacenadoInicial(300, 300, 300);
+                setCantidadAlmacenada(CantidadAlmacenar);
+                return getCantidadAlmacenada();
             case "Orcos":
-                return CantidadAlmacenar = AlmacenadoInicial(300, 300, 300);
+                CantidadAlmacenar = AlmacenadoInicial(300, 300, 300);
+                setCantidadAlmacenada(CantidadAlmacenar);
+                return getCantidadAlmacenada();
         }
         return null;
     }
+
 }
