@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class AncestrodeGuerra implements Militares {
     int Vida;
+
     ArrayList<String> Creado = new ArrayList<String>();
 
     public int getVida() {

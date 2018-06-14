@@ -1,4 +1,3 @@
-import Producers.ConstrucProducer;
 import Razas.Elfos_Nocturnos.Edificaciones.ConstruccionesElfas;
 import Razas.Humanos.Edificaciones.ConstruccionesHumanas;
 import Razas.Muertos_Vivientes.Edificaciones.ConstruccionesMuertos;
@@ -130,7 +129,7 @@ public class CentroMando{
         AlmacenamientoM();
         switch (Raza) {
             case "Elfo":
-                GeneracionInicial = AlmacenadoInicial(300, 300, 300);
+                GeneracionInicial = AlmacenadoInicial(300, 300, 180);
                 setVida(4500);
                 setCantidadAlmacenada(GeneracionInicial);
                 GeneracionInicial.add(3, getVida());
@@ -139,7 +138,7 @@ public class CentroMando{
                 return getCantidadAlmacenada();
 
             case "Humano":
-                GeneracionInicial = AlmacenadoInicial(150, 300, 300);
+                GeneracionInicial = AlmacenadoInicial(300, 300, 180);
                 setVida(6000);
                 setCantidadAlmacenada(GeneracionInicial);
                 GeneracionInicial.add( 3, getVida());
@@ -148,7 +147,7 @@ public class CentroMando{
                 return getCantidadAlmacenada();
 
             case "Muertos Vivientes":
-                GeneracionInicial = AlmacenadoInicial(300, 300, 300);
+                GeneracionInicial = AlmacenadoInicial(300, 300, 180);
                 setVida(3700);
                 setCantidadAlmacenada(GeneracionInicial);
                 GeneracionInicial.add(3, getVida());
@@ -157,7 +156,7 @@ public class CentroMando{
                 return getCantidadAlmacenada();
 
             case "Orcos":
-                GeneracionInicial = AlmacenadoInicial(300, 300, 300);
+                GeneracionInicial = AlmacenadoInicial(300, 300, 200);
                 setVida(3000);
                 setCantidadAlmacenada(GeneracionInicial);
                 GeneracionInicial.add(3, getVida());
@@ -170,10 +169,6 @@ public class CentroMando{
     }
 
     public ArrayList<String> Construir(String Raza, String Edificio){
-        //ConversorIDs Conversor = new ConversorIDs();
-        //Raza = Conversor.Conversor(ID);
-        //setRaza(Raza);
-        //ConstrucProducer Edificios = new ConstrucProducer();
         ArrayList<Integer> Almacenado = getCantidadAlmacenada();
         ArrayList<String> Costo;
         ArrayList<Integer> Aux = new ArrayList<>();
@@ -182,54 +177,63 @@ public class CentroMando{
             case "Elfos":
                 ConstruccionesElfas Elfos = new ConstruccionesElfas();
                 Costo = Elfos.getCElfo(Edificio).Crear();
-                Aux.add(0, Integer.parseInt(Costo.get(0)));
-                Aux.add(1, Integer.parseInt(Costo.get(1)));
-                Aux.add(2, Integer.parseInt(Costo.get(2)));
-                //if(Almacenado.get(0) < Aux.get(0) || Almacenado.get(1) < Aux.get(1) || Almacenado.get(2) < Aux.get(2)){
-
-                //}
-                NuevoAlmacen.add(0, Almacenado.get(0) - Aux.get(0));
-                NuevoAlmacen.add(0, Almacenado.get(1) - Aux.get(1));
-                NuevoAlmacen.add(0, Almacenado.get(2) - Aux.get(2));
-                setCantidadAlmacenada(NuevoAlmacen);
-                System.out.println (Elfos.getCElfo(Edificio));
-                return Elfos.getCElfo(Edificio).Crear();
+                Aux.add(0, Integer.parseInt(Costo.get(1)));
+                Aux.add(1, Integer.parseInt(Costo.get(2)));
+                Aux.add(2, Integer.parseInt(Costo.get(3)));
+                if(Almacenado.get(0) >= Aux.get(0) && Almacenado.get(1) >= Aux.get(1) && Almacenado.get(2) >= Aux.get(2)) {
+                    NuevoAlmacen.add(0, Almacenado.get(0) - Aux.get(0));
+                    NuevoAlmacen.add(1, Almacenado.get(1) - Aux.get(1));
+                    NuevoAlmacen.add(2, Almacenado.get(2) - Aux.get(2));
+                    setCantidadAlmacenada(NuevoAlmacen);
+                    System.out.println(Elfos.getCElfo(Edificio));
+                    return Elfos.getCElfo(Edificio).Crear();
+                }
+                return null;
             case "Humanos":
                 ConstruccionesHumanas Humanos = new ConstruccionesHumanas();
                 Costo = Humanos.getCHumano(Edificio).Crear();
-                Aux.add(0, Integer.parseInt(Costo.get(0)));
-                Aux.add(1, Integer.parseInt(Costo.get(1)));
-                Aux.add(2, Integer.parseInt(Costo.get(2)));
-                NuevoAlmacen.add(0, Almacenado.get(0) - Aux.get(0));
-                NuevoAlmacen.add(0, Almacenado.get(1) - Aux.get(1));
-                NuevoAlmacen.add(0, Almacenado.get(2) - Aux.get(2));
-                setCantidadAlmacenada(NuevoAlmacen);
-                System.out.println(Humanos.getCHumano(Edificio));
-                return Humanos.getCHumano(Edificio).Crear();
+                Aux.add(0, Integer.parseInt(Costo.get(1)));
+                Aux.add(1, Integer.parseInt(Costo.get(2)));
+                Aux.add(2, Integer.parseInt(Costo.get(3)));
+                if(Almacenado.get(0) >= Aux.get(0) && Almacenado.get(1) >= Aux.get(1) && Almacenado.get(2) >= Aux.get(2)) {
+                    NuevoAlmacen.add(0, Almacenado.get(0) - Aux.get(0));
+                    NuevoAlmacen.add(1, Almacenado.get(1) - Aux.get(1));
+                    NuevoAlmacen.add(2, Almacenado.get(2) - Aux.get(2));
+                    setCantidadAlmacenada(NuevoAlmacen);
+                    System.out.println(Humanos.getCHumano(Edificio));
+                    return Humanos.getCHumano(Edificio).Crear();
+                }
+                return null;
             case "Muertos":
                 ConstruccionesMuertos Muertos = new ConstruccionesMuertos();
                 Costo = Muertos.getCMuerto(Edificio).Crear();
-                Aux.add(0, Integer.parseInt(Costo.get(0)));
-                Aux.add(1, Integer.parseInt(Costo.get(1)));
-                Aux.add(2, Integer.parseInt(Costo.get(2)));
-                NuevoAlmacen.add(0, Almacenado.get(0) - Aux.get(0));
-                NuevoAlmacen.add(0, Almacenado.get(1) - Aux.get(1));
-                NuevoAlmacen.add(0, Almacenado.get(2) - Aux.get(2));
-                setCantidadAlmacenada(NuevoAlmacen);
-                System.out.println(Muertos.getCMuerto(Edificio));
-                return Muertos.getCMuerto(Edificio).Crear();
+                Aux.add(0, Integer.parseInt(Costo.get(1)));
+                Aux.add(1, Integer.parseInt(Costo.get(2)));
+                Aux.add(2, Integer.parseInt(Costo.get(3)));
+                if(Almacenado.get(0) >= Aux.get(0) && Almacenado.get(1) >= Aux.get(1) && Almacenado.get(2) >= Aux.get(2)) {
+                    NuevoAlmacen.add(0, Almacenado.get(0) - Aux.get(0));
+                    NuevoAlmacen.add(1, Almacenado.get(1) - Aux.get(1));
+                    NuevoAlmacen.add(2, Almacenado.get(2) - Aux.get(2));
+                    setCantidadAlmacenada(NuevoAlmacen);
+                    System.out.println(Muertos.getCMuerto(Edificio));
+                    return Muertos.getCMuerto(Edificio).Crear();
+                }
+                return null;
             case "Orcos":
                 ConstruccionesOrcos Orcos = new ConstruccionesOrcos();
                 Costo = Orcos.getCOrco(Edificio).Crear();
-                Aux.add(0, Integer.parseInt(Costo.get(0)));
-                Aux.add(1, Integer.parseInt(Costo.get(1)));
-                Aux.add(2, Integer.parseInt(Costo.get(2)));
-                NuevoAlmacen.add(0, Almacenado.get(0) - Aux.get(0));
-                NuevoAlmacen.add(0, Almacenado.get(1) - Aux.get(1));
-                NuevoAlmacen.add(0, Almacenado.get(2) - Aux.get(2));
-                setCantidadAlmacenada(NuevoAlmacen);
-                System.out.println(Orcos.getCOrco(Edificio));
-                return Orcos.getCOrco(Edificio).Crear();
+                Aux.add(0, Integer.parseInt(Costo.get(1)));
+                Aux.add(1, Integer.parseInt(Costo.get(2)));
+                Aux.add(2, Integer.parseInt(Costo.get(3)));
+                if(Almacenado.get(0) >= Aux.get(0) && Almacenado.get(1) >= Aux.get(1) && Almacenado.get(2) >= Aux.get(2)) {
+                    NuevoAlmacen.add(0, Almacenado.get(0) - Aux.get(0));
+                    NuevoAlmacen.add(1, Almacenado.get(1) - Aux.get(1));
+                    NuevoAlmacen.add(2, Almacenado.get(2) - Aux.get(2));
+                    setCantidadAlmacenada(NuevoAlmacen);
+                    System.out.println(Orcos.getCOrco(Edificio));
+                    return Orcos.getCOrco(Edificio).Crear();
+                }
+                return null;
         }
         return null;
     }

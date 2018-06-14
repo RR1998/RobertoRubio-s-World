@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class Juego {
@@ -174,9 +172,9 @@ public class Juego {
             String Edificio;
             int Opcion = 0;
             String Decision;
-            System.out.println("Fase numero " + cont);
+            System.out.println("\n Fase numero " + cont);
             System.out.println("Turno de " + NombreJugador1);
-            System.out.println("1. Construir");//Pruebas
+            System.out.println("1. Construir");//Hecho
             System.out.println("2. Recolectar");
             System.out.println("3. Mostrar Almacenado y limite de almacenado");//Hecho
             System.out.println("4. Mostrar nivel del Centro de Mando");//Hecho
@@ -194,8 +192,6 @@ public class Juego {
             }
             switch(Opcion){
                 case 1:
-                    //System.out.println("Ingrese el tipo de edificio que desea construir ya sea economico o militar");
-                    //TEdificio = Scanner.nextLine();
                     System.out.println("Ingrese el edificio que desea construir");
                     Edificio = Scanner.nextLine();
                     Construir(Edificio, 1);
@@ -204,6 +200,8 @@ public class Juego {
                     System.out.println("Recursos restantes");
                     MostrarRecursos(getRaza1(), 1);
                     break;
+                case 2:
+                    Recolectar(1);
                 case 3:
                     MostrarRecursos(getRaza1(), 1);
                     break;
@@ -233,14 +231,25 @@ public class Juego {
         ArrayList<ArrayList> Aux = new ArrayList<>();
         ArrayList<String> Aux2 = new ArrayList<>();
         ArrayList<ArrayList> Aux3;
-        ArrayList<Integer> Almacenado = new ArrayList<>();
         if (J == 1){
-            Aux.add(Jugador1.Construir(getRaza1(), Edificio));
-            Aux2.add(Edificio);
-            Aux.add(Aux2);
-            Aux3 = getConstruccionesJ1();
-            Aux3.add(Aux);
-            setConstruccionesJ1(Aux3);
+            try {
+                Aux.add(Jugador1.Construir(getRaza1(), Edificio));
+                if(Aux.get(Aux.size() - 1) == null){
+                    System.out.println("No tienes recursos suficientes para realizar esto");
+                }
+                else {
+                    Aux2.add(Edificio);
+                    Aux.add(Aux2);
+                    Aux3 = getConstruccionesJ1();
+                    Aux3.add(Aux);
+                    setConstruccionesJ1(Aux3);
+                }
+            }
+            catch(NullPointerException e){
+                Aux.remove(Aux.size() - 1);
+                setConstruccionesJ1(getConstruccionesJ1().remove(getConstruccionesJ1().size() - 1));
+                System.out.println("No tienes los recursos suficientes para realizar esto");
+            }
         }
         if (J == 2){
             Aux.add(Jugador2.Construir(getRaza1(), Edificio));
@@ -248,6 +257,10 @@ public class Juego {
             Aux.add(Aux2);
             setConstruccionesJ2(Aux);
         }
+    }
+
+    public void Recolectar(int J){
+
     }
 
     public void MostrarRecursos(String Raza, int J){
@@ -309,6 +322,7 @@ public class Juego {
             System.out.println(Jugador2.getNivel());
         }
     }
+
     public void Rendirse (int J){
         if (J == 1){
             Jugador1.setVida(0);
