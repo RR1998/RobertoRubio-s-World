@@ -1,6 +1,44 @@
 import java.util.Scanner;
 
 public class Juego {
+    String NombreJugador1, NombreJugador2;
+    CentroMando Jugador1 = new CentroMando();
+    CentroMando Jugador2 = new CentroMando();
+
+    public String getNombreJugador1() {
+        return NombreJugador1;
+    }
+
+    public void setNombreJugador1(String nombreJugador1) {
+        NombreJugador1 = nombreJugador1;
+    }
+
+    public String getNombreJugador2() {
+        return NombreJugador2;
+    }
+
+    public void setNombreJugador2(String nombreJugador2) {
+        NombreJugador2 = nombreJugador2;
+    }
+
+    /*
+    public CentroMando getJugador1() {
+        return Jugador1;
+    }
+
+    public void setJugador1(CentroMando jugador1) {
+        Jugador1 = jugador1;
+    }
+
+    public CentroMando getJugador2() {
+        return Jugador2;
+    }
+
+    public void setJugador2(CentroMando jugador2) {
+        Jugador2 = jugador2;
+    }
+    */
+
     public void Jugar(){
         System.out.println("Los Elfos de la Noche\n");
         System.out.println("Bajo los espesos bosques de Ashenvale se encuentran los misteriosos Elfos de la noche \n" +
@@ -26,22 +64,28 @@ public class Juego {
         Scanner Scanner = new Scanner(System.in);
 
         for(int i = 0; i<2; i++) {
+            int Opcion;
+            System.out.println("Ingrese un nombre de jugador"+ i++);
+            i--;
+            if (i == 0) {
+                setNombreJugador1(Scanner.nextLine());
+            }
+            if (i == 1){
+                setNombreJugador2(Scanner.next());
+            }
             System.out.println("Jugador" + i++ + "seleccione su raza por favor entre las siguientes opciones");
             System.out.println("1. Elfos de la Noche");
             System.out.println("2. Humanos");
             System.out.println("3. Muertos Vivientes");
             System.out.println("4. Orcos");
             i--;
-            String Jugador = Scanner.nextLine();
-            int Opcion;
+            String RazaJugador = Scanner.nextLine();
             try{
-                Opcion = Integer.parseInt(Jugador);
+                Opcion = Integer.parseInt(RazaJugador);
                 if(i == 0 && Opcion < 5 && Opcion > 0) {
-                    CentroMando Jugador1 = new CentroMando();
                     switch(Opcion){
                         case 1:
                             Jugador1.Inicio("Elfo");
-                            System.out.println(Jugador1.getCantidadAlmacenada().get(0));
                             break;
                         case 2:
                             Jugador1.Inicio("Humano");
@@ -55,7 +99,6 @@ public class Juego {
                     }
                 }
                 if(i == 1 && Opcion < 5 && Opcion > 0){
-                    CentroMando Jugador2 = new CentroMando();
                     switch(Opcion){
                         case 1:
                             Jugador2.Inicio("Elfo");
@@ -77,6 +120,14 @@ public class Juego {
             }
             catch (NumberFormatException e){
                 System.out.println("Ingrese un numero que se encuentre en el menu por favor");
+            }
+        }
+        while (Jugador1.getVida() > 0 && Jugador2.getVida() > 0){
+            if (Jugador1.getVida() <= 0){
+                System.out.println("Gana " + getNombreJugador2());
+            }
+            if (Jugador2.getVida() <= 0){
+                System.out.println("Gana " + getNombreJugador1());
             }
         }
     }

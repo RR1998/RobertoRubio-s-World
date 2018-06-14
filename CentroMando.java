@@ -1,17 +1,28 @@
-import Interfaces.ConstrucFactory;
+
+import Interfaces.Creacion;
 import Producers.ConstrucProducer;
 import Razas.Elfos_Nocturnos.Edificaciones.ConstruccionesElfas;
 import Razas.Humanos.Edificaciones.ConstruccionesHumanas;
 import Razas.Muertos_Vivientes.Edificaciones.ConstruccionesMuertos;
 import Razas.Orcos.Edificaciones.ConstruccionesOrcos;
-
 import java.util.ArrayList;
 
+// hace el metodo para crear el centro de mando, que implemente la interfaz y que este solo posea vida en su array
 public class CentroMando{
     ArrayList<Integer> GeneracionInicial = new ArrayList<>();
     ArrayList<Integer> AlmacenamientoMaximo = new ArrayList<>();
     ArrayList<Integer> CantidadAlmacenada = new ArrayList<>();
+    ArrayList<Integer> Creado = new ArrayList<>();
+    String Raza;
     int Nivel, Vida;
+
+    public String getRaza() {
+        return Raza;
+    }
+
+    public void setRaza(String raza) {
+        Raza = raza;
+    }
 
     public int getVida() {
         return Vida;
@@ -51,6 +62,30 @@ public class CentroMando{
 
     public void setAlmacenamientoMaximo(ArrayList<Integer> almacenamientoMaximo) {
         AlmacenamientoMaximo = almacenamientoMaximo;
+    }
+
+    /*@Override
+    public ArrayList<Integer> Crear(){
+        switch (getRaza()) {
+            case "Elfos":
+                setVida(4500);
+                break;
+            case "Humanos":
+                setVida(6000);
+                break;
+            case" Muertos":
+                setVida(4000);
+                break;
+            case "Orcos":
+                setVida(3500);
+                break;
+        }
+        Creado.add(0,getVida());
+        return Creado;
+    }*/
+
+    public void VidaRestante(int Dano){
+        setVida(getVida() - Dano);
     }
 
     public void SubirNivel(){
@@ -153,9 +188,10 @@ public class CentroMando{
         String Raza;
         ConversorIDs Conversor = new ConversorIDs();
         Raza = Conversor.Conversor(ID);
+        setRaza(Raza);
         ConstrucProducer Edificios = new ConstrucProducer();
         ArrayList<Integer> Almacenado = getCantidadAlmacenada();
-        ArrayList<Integer> Costo = new ArrayList<>();
+        ArrayList<Integer> Costo;
         ArrayList<Integer> NuevoAlmacen = new ArrayList<>();
         switch(Raza){
             case "Elfos":
