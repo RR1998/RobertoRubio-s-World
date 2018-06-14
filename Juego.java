@@ -221,7 +221,7 @@ public class Juego {
             setConstruccionesJ1(Aux);
         }
         if (J == 2){
-            Aux2.add(Jugador1.Construir(getRaza2(), Edificio));
+            Aux2.add(Jugador2.Construir(getRaza2(), Edificio));
             setConstruccionesJ2(Aux2);
         }
     }
