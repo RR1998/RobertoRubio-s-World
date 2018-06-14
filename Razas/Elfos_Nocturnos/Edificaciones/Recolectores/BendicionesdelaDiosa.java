@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class BendicionesdelaDiosa implements Recolectores {
     int BendicionesdelaDiosa;
     int Vida;
-    ArrayList<Integer> Creado = new ArrayList<Integer>();
+    ArrayList<String> Creado = new ArrayList<String>();
 
     public int getBendicionesdelaDiosa() {
         return BendicionesdelaDiosa;
@@ -28,12 +28,12 @@ public class BendicionesdelaDiosa implements Recolectores {
     //Nomenclatura de cosotos  Vida Recurso1, Recurso2, Recurso3
 
     @Override
-    public ArrayList<Integer> Crear(){
+    public ArrayList<String> Crear(){
         setVida(3300);
-        Creado.add(0,getVida());
-        Creado.add(1,80);
-        Creado.add(2,50);
-        Creado.add(3,10);
+        Creado.add(0, Integer.toString(getVida()));
+        Creado.add(1,"80");
+        Creado.add(2,"50");
+        Creado.add(3,"10");
         return Creado;
     }
 

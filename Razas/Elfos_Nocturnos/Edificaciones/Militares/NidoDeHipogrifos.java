@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class NidoDeHipogrifos implements Militares {
     int Vida;
-    ArrayList<Integer> Creado = new ArrayList<Integer>();
+    ArrayList<String> Creado = new ArrayList<>();
 
     public int getVida() {
         return Vida;
@@ -22,12 +22,12 @@ public class NidoDeHipogrifos implements Militares {
     //Nomenclatura de cosotos  Vida Recurso1, Recurso2, Recurso3
 
     @Override
-    public ArrayList<Integer> Crear(){
+    public ArrayList<String> Crear(){
         setVida(2200);
-        Creado.add(0,getVida());
-        Creado.add(1,200);
-        Creado.add(2,150);
-        Creado.add(3,80);
+        Creado.add(0, Integer.toString(getVida()));
+        Creado.add(1,"200");
+        Creado.add(2,"150");
+        Creado.add(3,"80");
         return Creado;
     }
 

@@ -61,26 +61,6 @@ public class CentroMando{
         AlmacenamientoMaximo = almacenamientoMaximo;
     }
 
-    /*@Override
-    public ArrayList<Integer> Crear(){
-        switch (getRaza()) {
-            case "Elfos":
-                setVida(4500);
-                break;
-            case "Humanos":
-                setVida(6000);
-                break;
-            case" Muertos":
-                setVida(4000);
-                break;
-            case "Orcos":
-                setVida(3500);
-                break;
-        }
-        Creado.add(0,getVida());
-        return Creado;
-    }*/
-
     public void VidaRestante(int Dano){
         setVida(getVida() - Dano);
     }
@@ -189,48 +169,64 @@ public class CentroMando{
         return null;
     }
 
-    public ArrayList<Integer> Construir(String Raza, String Edificio){
+    public ArrayList<String> Construir(String Raza, String Edificio){
         //ConversorIDs Conversor = new ConversorIDs();
         //Raza = Conversor.Conversor(ID);
         //setRaza(Raza);
-        ConstrucProducer Edificios = new ConstrucProducer();
+        //ConstrucProducer Edificios = new ConstrucProducer();
         ArrayList<Integer> Almacenado = getCantidadAlmacenada();
-        ArrayList<Integer> Costo;
+        ArrayList<String> Costo;
+        ArrayList<Integer> Aux = new ArrayList<>();
         ArrayList<Integer> NuevoAlmacen = new ArrayList<>();
         switch(Raza){
             case "Elfos":
                 ConstruccionesElfas Elfos = new ConstruccionesElfas();
                 Costo = Elfos.getCElfo(Edificio).Crear();
-                NuevoAlmacen.add(0, Almacenado.get(0) - Costo.get(0));
-                NuevoAlmacen.add(0, Almacenado.get(1) - Costo.get(1));
-                NuevoAlmacen.add(0, Almacenado.get(2) - Costo.get(2));
+                Aux.add(0, Integer.parseInt(Costo.get(0)));
+                Aux.add(1, Integer.parseInt(Costo.get(1)));
+                Aux.add(2, Integer.parseInt(Costo.get(2)));
+                //if(Almacenado.get(0) < Aux.get(0) || Almacenado.get(1) < Aux.get(1) || Almacenado.get(2) < Aux.get(2)){
+
+                //}
+                NuevoAlmacen.add(0, Almacenado.get(0) - Aux.get(0));
+                NuevoAlmacen.add(0, Almacenado.get(1) - Aux.get(1));
+                NuevoAlmacen.add(0, Almacenado.get(2) - Aux.get(2));
                 setCantidadAlmacenada(NuevoAlmacen);
                 System.out.println (Elfos.getCElfo(Edificio));
                 return Elfos.getCElfo(Edificio).Crear();
             case "Humanos":
                 ConstruccionesHumanas Humanos = new ConstruccionesHumanas();
                 Costo = Humanos.getCHumano(Edificio).Crear();
-                NuevoAlmacen.add(0, Almacenado.get(0) - Costo.get(0));
-                NuevoAlmacen.add(0, Almacenado.get(1) - Costo.get(1));
-                NuevoAlmacen.add(0, Almacenado.get(2) - Costo.get(2));
+                Aux.add(0, Integer.parseInt(Costo.get(0)));
+                Aux.add(1, Integer.parseInt(Costo.get(1)));
+                Aux.add(2, Integer.parseInt(Costo.get(2)));
+                NuevoAlmacen.add(0, Almacenado.get(0) - Aux.get(0));
+                NuevoAlmacen.add(0, Almacenado.get(1) - Aux.get(1));
+                NuevoAlmacen.add(0, Almacenado.get(2) - Aux.get(2));
                 setCantidadAlmacenada(NuevoAlmacen);
                 System.out.println(Humanos.getCHumano(Edificio));
                 return Humanos.getCHumano(Edificio).Crear();
             case "Muertos":
                 ConstruccionesMuertos Muertos = new ConstruccionesMuertos();
                 Costo = Muertos.getCMuerto(Edificio).Crear();
-                NuevoAlmacen.add(0, Almacenado.get(0) - Costo.get(0));
-                NuevoAlmacen.add(0, Almacenado.get(1) - Costo.get(1));
-                NuevoAlmacen.add(0, Almacenado.get(2) - Costo.get(2));
+                Aux.add(0, Integer.parseInt(Costo.get(0)));
+                Aux.add(1, Integer.parseInt(Costo.get(1)));
+                Aux.add(2, Integer.parseInt(Costo.get(2)));
+                NuevoAlmacen.add(0, Almacenado.get(0) - Aux.get(0));
+                NuevoAlmacen.add(0, Almacenado.get(1) - Aux.get(1));
+                NuevoAlmacen.add(0, Almacenado.get(2) - Aux.get(2));
                 setCantidadAlmacenada(NuevoAlmacen);
                 System.out.println(Muertos.getCMuerto(Edificio));
                 return Muertos.getCMuerto(Edificio).Crear();
             case "Orcos":
                 ConstruccionesOrcos Orcos = new ConstruccionesOrcos();
                 Costo = Orcos.getCOrco(Edificio).Crear();
-                NuevoAlmacen.add(0, Almacenado.get(0) - Costo.get(0));
-                NuevoAlmacen.add(0, Almacenado.get(1) - Costo.get(1));
-                NuevoAlmacen.add(0, Almacenado.get(2) - Costo.get(2));
+                Aux.add(0, Integer.parseInt(Costo.get(0)));
+                Aux.add(1, Integer.parseInt(Costo.get(1)));
+                Aux.add(2, Integer.parseInt(Costo.get(2)));
+                NuevoAlmacen.add(0, Almacenado.get(0) - Aux.get(0));
+                NuevoAlmacen.add(0, Almacenado.get(1) - Aux.get(1));
+                NuevoAlmacen.add(0, Almacenado.get(2) - Aux.get(2));
                 setCantidadAlmacenada(NuevoAlmacen);
                 System.out.println(Orcos.getCOrco(Edificio));
                 return Orcos.getCOrco(Edificio).Crear();

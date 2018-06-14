@@ -201,6 +201,8 @@ public class Juego {
                     Construir(Edificio, 1);
                     System.out.println("Sus contstrucciones son ");
                     System.out.println(getConstruccionesJ1());
+                    System.out.println("Recursos restantes");
+                    MostrarRecursos(getRaza1(), 1);
                     break;
                 case 3:
                     MostrarRecursos(getRaza1(), 1);
@@ -229,17 +231,21 @@ public class Juego {
 
     public void Construir(String Edificio, int J){
         ArrayList<ArrayList> Aux = new ArrayList<>();
-        ArrayList<ArrayList> Aux2 = new ArrayList<>();
-        int Largo;
+        ArrayList<String> Aux2 = new ArrayList<>();
+        ArrayList<ArrayList> Aux3;
+        ArrayList<Integer> Almacenado = new ArrayList<>();
         if (J == 1){
             Aux.add(Jugador1.Construir(getRaza1(), Edificio));
-            System.out.println(Aux);
-            Largo = getConstruccionesJ1().size();
-            //Aux2 = getConstruccionesJ1().add(Largo, Aux);
-            //setConstruccionesJ1(getConstruccionesJ1().add(getConstruccionesJ1().size(), Aux));
+            Aux2.add(Edificio);
+            Aux.add(Aux2);
+            Aux3 = getConstruccionesJ1();
+            Aux3.add(Aux);
+            setConstruccionesJ1(Aux3);
         }
         if (J == 2){
-            Aux.add(Jugador2.Construir(getRaza2(), Edificio));
+            Aux.add(Jugador2.Construir(getRaza1(), Edificio));
+            Aux2.add(Edificio);
+            Aux.add(Aux2);
             setConstruccionesJ2(Aux);
         }
     }

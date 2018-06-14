@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Granja implements Recolectores {
     int Trigo;
     int Vida;
-    ArrayList<Integer> Creado = new ArrayList<Integer>();
+    ArrayList<String> Creado = new ArrayList<String>();
 
     public int getVida() {
         return Vida;
@@ -20,12 +20,12 @@ public class Granja implements Recolectores {
     //Nomenclatura de cosotos  Vida Recurso1, Recurso2, Recurso3
 
     @Override
-    public ArrayList<Integer> Crear(){
+    public ArrayList<String> Crear(){
         setVida(3300);
-        Creado.add(0,getVida());
-        Creado.add(1,70);
-        Creado.add(2,50);
-        Creado.add(3,10);
+        Creado.add(0, Integer.toString(getVida()));
+        Creado.add(1,"70");
+        Creado.add(2,"50");
+        Creado.add(3,"10");
         return Creado;
     }
 

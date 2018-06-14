@@ -12,7 +12,7 @@ public class Senor implements Unidades {
     int Vida;
     int DanoU;
     int TiempoCreacion;
-    ArrayList<Integer> Creado = new ArrayList<Integer>();
+    ArrayList<String> Creado = new ArrayList<String>();
 
     public int getVida() {
         return Vida;
@@ -41,12 +41,12 @@ public class Senor implements Unidades {
     //Nomenclatura de cosotos  Vida Recurso1, Recurso2, Recurso3
 
     @Override
-    public ArrayList<Integer> Crear(){
+    public ArrayList<String> Crear(){
         setVida(300);
-        Creado.add(0,getVida());
-        Creado.add(1,150);
-        Creado.add(2,130);
-        Creado.add(3,90);
+        Creado.add(0, Integer.toString(getVida()));
+        Creado.add(1,"150");
+        Creado.add(2,"130");
+        Creado.add(3,"90");
         return Creado;
     }
 

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class CanalizadorOscuro implements Recolectores {
     int MagiaNegra;
     int Vida;
-    ArrayList<Integer> Creado = new ArrayList<Integer>();
+    ArrayList<String> Creado = new ArrayList<String>();
 
     public int getMagiaNegra() {
         return MagiaNegra;
@@ -28,12 +28,12 @@ public class CanalizadorOscuro implements Recolectores {
     //Nomenclatura de cosotos  Vida Recurso1, Recurso2, Recurso3
 
     @Override
-    public ArrayList<Integer> Crear(){
+    public ArrayList<String> Crear(){
         setVida(1500);
-        Creado.add(0,getVida());
-        Creado.add(1,80);
-        Creado.add(2,20);
-        Creado.add(3,15);
+        Creado.add(0, Integer.toString(getVida()));
+        Creado.add(1,"80");
+        Creado.add(2,"20");
+        Creado.add(3,"15");
         return Creado;
     }
 

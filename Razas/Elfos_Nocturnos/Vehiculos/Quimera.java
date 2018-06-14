@@ -12,7 +12,7 @@ public class Quimera implements Unidades {
     int Vida;
     int DanoU;
     int TiempoCreacion;
-    ArrayList<Integer> Creado = new ArrayList<Integer>();
+    ArrayList<String> Creado = new ArrayList<String>();
 
     public int getVida() {
         return Vida;
@@ -41,12 +41,12 @@ public class Quimera implements Unidades {
     //Nomenclatura de cosotos  Vida Recurso1, Recurso2, Recurso3
 
     @Override
-    public ArrayList<Integer> Crear(){
+    public ArrayList<String> Crear(){
         setVida(200);
-        Creado.add(0,getVida());
-        Creado.add(1,120);
-        Creado.add(2,80);
-        Creado.add(3,90);
+        Creado.add(0, Integer.toString(getVida()));
+        Creado.add(1,"120");
+        Creado.add(2,"80");
+        Creado.add(3,"90");
         return Creado;
     }
     @Override
