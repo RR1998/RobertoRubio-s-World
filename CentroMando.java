@@ -147,6 +147,7 @@ public class CentroMando{
 
     public ArrayList<Integer> Inicio(String Raza) {
         setNivel(0);
+        AlmacenamientoM();
         switch (Raza) {
             case "Elfo":
                 GeneracionInicial = AlmacenadoInicial(300, 300, 300);
@@ -156,14 +157,16 @@ public class CentroMando{
                 GeneracionInicial.add(4, getNivel());
                 GeneracionInicial.add(5, 1);
                 return getCantidadAlmacenada();
+
             case "Humano":
-                GeneracionInicial = AlmacenadoInicial(300, 300, 300);
+                GeneracionInicial = AlmacenadoInicial(150, 300, 300);
                 setVida(6000);
                 setCantidadAlmacenada(GeneracionInicial);
                 GeneracionInicial.add( 3, getVida());
                 GeneracionInicial.add(4, getNivel());
                 GeneracionInicial.add(5, 2);
                 return getCantidadAlmacenada();
+
             case "Muertos Vivientes":
                 GeneracionInicial = AlmacenadoInicial(300, 300, 300);
                 setVida(3700);
@@ -172,6 +175,7 @@ public class CentroMando{
                 GeneracionInicial.add(4, getNivel());
                 GeneracionInicial.add(5, 3);
                 return getCantidadAlmacenada();
+
             case "Orcos":
                 GeneracionInicial = AlmacenadoInicial(300, 300, 300);
                 setVida(3000);
@@ -180,15 +184,15 @@ public class CentroMando{
                 GeneracionInicial.add(4, getNivel());
                 GeneracionInicial.add(5, 4);
                 return getCantidadAlmacenada();
+
         }
         return null;
     }
 
-    public ConstrucProducer Construir(int ID, String Edificio){
-        String Raza;
-        ConversorIDs Conversor = new ConversorIDs();
-        Raza = Conversor.Conversor(ID);
-        setRaza(Raza);
+    public ConstrucProducer Construir(String Raza, String Edificio){
+        //ConversorIDs Conversor = new ConversorIDs();
+        //Raza = Conversor.Conversor(ID);
+        //setRaza(Raza);
         ConstrucProducer Edificios = new ConstrucProducer();
         ArrayList<Integer> Almacenado = getCantidadAlmacenada();
         ArrayList<Integer> Costo;
