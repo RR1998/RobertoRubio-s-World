@@ -1,11 +1,11 @@
 package Razas.Humanos.Edificaciones;
 
-import Interfaces.ConstrucFactory;
+import Interfaces.ConstructionFactory;
 import Interfaces.Creacion;
 import Razas.Humanos.Edificaciones.Militares.*;
 import Razas.Humanos.Edificaciones.Recolectores.*;
 
-public class ConstruccionesHumanas implements ConstrucFactory {
+public class ConstruccionesHumanas implements ConstructionFactory {
 
     @Override
     public Creacion getCElfo(String Type){
@@ -23,9 +23,9 @@ public class ConstruccionesHumanas implements ConstrucFactory {
                 return new Taller();
             case "Granja":
                 return new Granja();
-            case "Campo Maderero":
+            case "Campo maderero":
                 return new CampoMaderero();
-            case "Mina de Oro":
+            case "Mina de oro":
                 return new MinadeOro();
         }
         return null;

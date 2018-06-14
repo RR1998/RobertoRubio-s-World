@@ -1,5 +1,6 @@
-import Producers.ConstrucProducer;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Juego {
@@ -7,8 +8,8 @@ public class Juego {
     String Raza1, Raza2;
     CentroMando Jugador1 = new CentroMando();
     CentroMando Jugador2 = new CentroMando();
-    ArrayList<ConstrucProducer> ConstruccionesJ1 = new ArrayList<>();
-    ArrayList<ConstrucProducer> ConstruccionesJ2 = new ArrayList<>();
+    ArrayList<ArrayList> ConstruccionesJ1 = new ArrayList<>();
+    ArrayList<ArrayList> ConstruccionesJ2 = new ArrayList<>();
 
     public String getRaza1() {
         return Raza1;
@@ -42,19 +43,19 @@ public class Juego {
         NombreJugador2 = nombreJugador2;
     }
 
-    public ArrayList<ConstrucProducer> getConstruccionesJ1() {
+    public ArrayList<ArrayList> getConstruccionesJ1() {
         return ConstruccionesJ1;
     }
 
-    public void setConstruccionesJ1(ArrayList<ConstrucProducer> construccionesJ1) {
+    public void setConstruccionesJ1(ArrayList<ArrayList> construccionesJ1) {
         ConstruccionesJ1 = construccionesJ1;
     }
 
-    public ArrayList<ConstrucProducer> getConstruccionesJ2() {
+    public ArrayList<ArrayList> getConstruccionesJ2() {
         return ConstruccionesJ2;
     }
 
-    public void setConstruccionesJ2(ArrayList<ConstrucProducer> construccionesJ2) {
+    public void setConstruccionesJ2(ArrayList<ArrayList> construccionesJ2) {
         ConstruccionesJ2 = construccionesJ2;
     }
 
@@ -123,12 +124,11 @@ public class Juego {
                 if(i == 0 && Opcion < 5 && Opcion > 0) {
                     switch(Opcion){
                         case 1:
-                            setRaza1("Elfo");
+                            setRaza1("Elfos");
                             Jugador1.Inicio("Elfo");
-                            System.out.println(Jugador1.getCantidadAlmacenada());
                             break;
                         case 2:
-                            setRaza1("Humano");
+                            setRaza1("Humanos");
                             Jugador1.Inicio("Humano");
                             break;
                         case 3:
@@ -144,13 +144,12 @@ public class Juego {
                 if(i == 1 && Opcion < 5 && Opcion > 0){
                     switch(Opcion){
                         case 1:
-                            setRaza2("Elfo");
+                            setRaza2("Elfos");
                             Jugador2.Inicio("Elfo");
                             break;
                         case 2:
-                            setRaza2("Humano");
+                            setRaza2("Humanos");
                             Jugador2.Inicio("Humano");
-                            System.out.println(Jugador2.getCantidadAlmacenada());
                             break;
                         case 3:
                             setRaza2("Muertos");
@@ -175,24 +174,17 @@ public class Juego {
             String Edificio;
             int Opcion = 0;
             String Decision;
-            System.out.println("Fase numero" + cont);
-            if (Jugador1.getVida() <= 0){
-                System.out.println("Gana " + getNombreJugador2());
-            }
-
-            if (Jugador2.getVida() <= 0){
-                System.out.println("Gana " + getNombreJugador1());
-            }
-
+            System.out.println("Fase numero " + cont);
             System.out.println("Turno de " + NombreJugador1);
-            System.out.println("1. Construir");
+            System.out.println("1. Construir");//Pruebas
             System.out.println("2. Recolectar");
-            System.out.println("3. Mostrar Almacenado y limite de almacenado");
-            System.out.println("4. Mostrar nivel del Centro de Mando");
-            System.out.println("5. Subir de nivel");
+            System.out.println("3. Mostrar Almacenado y limite de almacenado");//Hecho
+            System.out.println("4. Mostrar nivel del Centro de Mando");//Hecho
+            System.out.println("5. Subir de nivel");//Hecho
             System.out.println("6. Entrenar");
             System.out.println("7. Atacar");
             System.out.println("8. Defender");
+            System.out.println("9. Rendirse");//Hecho
             Decision = Scanner.nextLine();
             try{
                 Opcion = Integer.parseInt(Decision);
@@ -202,27 +194,53 @@ public class Juego {
             }
             switch(Opcion){
                 case 1:
-                    System.out.println("Ingrese el Edificio que desea construir");
+                    //System.out.println("Ingrese el tipo de edificio que desea construir ya sea economico o militar");
+                    //TEdificio = Scanner.nextLine();
+                    System.out.println("Ingrese el edificio que desea construir");
                     Edificio = Scanner.nextLine();
                     Construir(Edificio, 1);
+                    System.out.println("Sus contstrucciones son ");
+                    System.out.println(getConstruccionesJ1());
                     break;
                 case 3:
                     MostrarRecursos(getRaza1(), 1);
                     break;
+                case 4:
+                    System.out.println("El nivel de si centro de mando es: " + Jugador1.getNivel());
+                    break;
+                case 5:
+                    SubirNivel(1);
+                    break;
+                case 9:
+                    Rendirse(1);
+                    break;
+                default:
+                    System.out.println("No ingreso ninguna opcion pierde turno");
+            }
+            if (Jugador1.getVida() <= 0){
+                System.out.println("Gana " + getNombreJugador2());
+            }
+
+            if (Jugador2.getVida() <= 0){
+                System.out.println("Gana " + getNombreJugador1());
             }
         }
     }
 
     public void Construir(String Edificio, int J){
-        ArrayList<ConstrucProducer> Aux =  new ArrayList<>();
-        ArrayList<ConstrucProducer> Aux2 =  new ArrayList<>();
+        ArrayList<ArrayList> Aux = new ArrayList<>();
+        ArrayList<ArrayList> Aux2 = new ArrayList<>();
+        int Largo;
         if (J == 1){
             Aux.add(Jugador1.Construir(getRaza1(), Edificio));
-            setConstruccionesJ1(Aux);
+            System.out.println(Aux);
+            Largo = getConstruccionesJ1().size();
+            //Aux2 = getConstruccionesJ1().add(Largo, Aux);
+            //setConstruccionesJ1(getConstruccionesJ1().add(getConstruccionesJ1().size(), Aux));
         }
         if (J == 2){
-            Aux2.add(Jugador2.Construir(getRaza2(), Edificio));
-            setConstruccionesJ2(Aux2);
+            Aux.add(Jugador2.Construir(getRaza2(), Edificio));
+            setConstruccionesJ2(Aux);
         }
     }
 
@@ -238,7 +256,7 @@ public class Juego {
             Aux2 = Jugador2.getCantidadAlmacenada();
         }
         switch (Raza){
-            case "Elfo":
+            case "Elfos":
                 System.out.println("Su maximo de Bendiciones de la diosa es " + Aux.get(0));
                 System.out.println("Su Maximo de Mana Lunar es " + Aux.get(1));
                 System.out.println("Su Maximo de Piedras Celestiales es " + Aux.get(2));
@@ -246,7 +264,7 @@ public class Juego {
                 System.out.println("Usted posee " + Aux2.get(1) + " de Mana Lunar");
                 System.out.println("Usted posee " + Aux2.get(2) + " Piedras Celestiales");
                 break;
-            case "Humano":
+            case "Humanos":
                 System.out.println("Su maximo de Madera es " + Aux.get(0));
                 System.out.println("Su Maximo de Trigo es " + Aux.get(1));
                 System.out.println("Su Maximo de Oro es " + Aux.get(2));
@@ -270,6 +288,27 @@ public class Juego {
                 System.out.println("Usted posee " + Aux2.get(1) + " de Piedra");
                 System.out.println("Usted posee " + Aux2.get(2) + " Esclavos");
                 break;
+        }
+    }
+
+    public void SubirNivel(int J) {
+        if (J == 1) {
+            Jugador1.SubirNivel();
+            System.out.printf("Nivel ");
+            System.out.println(Jugador1.getNivel());
+        }
+        if (J == 2){
+            Jugador2.SubirNivel();
+            System.out.println("Nivel ");
+            System.out.println(Jugador2.getNivel());
+        }
+    }
+    public void Rendirse (int J){
+        if (J == 1){
+            Jugador1.setVida(0);
+        }
+        if (J == 2){
+            Jugador2.setVida(0);
         }
     }
 }

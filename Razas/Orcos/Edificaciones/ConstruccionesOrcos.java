@@ -1,12 +1,12 @@
 package Razas.Orcos.Edificaciones;
 
-import Interfaces.ConstrucFactory;
+import Interfaces.ConstructionFactory;
 import Interfaces.Creacion;
 import Razas.Orcos.Edificaciones.Militares.*;
 import Razas.Orcos.Edificaciones.Recolectores.*;
 
 
-public class ConstruccionesOrcos implements ConstrucFactory {
+public class ConstruccionesOrcos implements ConstructionFactory {
     @Override
     public Creacion getCElfo(String Type){
         return null;
