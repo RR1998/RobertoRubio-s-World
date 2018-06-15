@@ -27,15 +27,15 @@ public class ConstruccionesOrcos implements ConstructionFactory {
         switch (Type){
             case "Bestiario":
                 return new Bestiario();
-            case "Campamento de Guerra":
+            case "Campamento de guerra":
                 return new CampamentoDeGuerra();
-            case "Talleres Goblin":
+            case "Talleres goblin":
                 return new TalleresGoblin();
             case "Amarraderos":
                 return new Amarraderos();
-            case "Demoledores de Piedra":
+            case "Demoledores de piedra":
                 return new DemoledoresDePiedra();
-            case "Madrigera Orca":
+            case "Madrigera orca":
                 return new MadrigeraOrca();
         }
         return null;

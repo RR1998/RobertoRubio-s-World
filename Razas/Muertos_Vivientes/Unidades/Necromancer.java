@@ -62,6 +62,16 @@ public class Necromancer implements Unidades {
     }
 
     @Override
+    public void Generar() {
+
+    }
+
+    @Override
+    public int Recolectar() {
+        return 0;
+    }
+
+    @Override
     public int TiempoCreacion (){
         setTiempoCreacion(1);
         return getTiempoCreacion();

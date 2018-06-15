@@ -61,9 +61,18 @@ public class Brujo implements Unidades {
     }
 
     @Override
+    public void Generar() {
+
+    }
+
+    @Override
     public int TiempoCreacion (){
         setTiempoCreacion(2);
         return getTiempoCreacion();
+    }
+    @Override
+    public int Recolectar() {
+        return 0;
     }
 }
 

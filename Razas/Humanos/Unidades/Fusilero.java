@@ -60,6 +60,16 @@ public class Fusilero implements Unidades{
     }
 
     @Override
+    public void Generar() {
+
+    }
+
+    @Override
+    public int Recolectar() {
+        return 0;
+    }
+
+    @Override
     public int TiempoCreacion (){
         setTiempoCreacion(2);
         return getTiempoCreacion();

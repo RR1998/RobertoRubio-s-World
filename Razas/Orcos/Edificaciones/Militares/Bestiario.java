@@ -35,6 +35,17 @@ public class Bestiario implements Militares {
     public void VidaRestante(int Dano){
         setVida(getVida()-Dano);
     }
+
+    @Override
+    public void Generar() {
+
+    }
+
+    @Override
+    public int Recolectar() {
+        return 0;
+    }
+
     @Override
     public void Entrenar(String Type){
         UnitFactory Orcos;

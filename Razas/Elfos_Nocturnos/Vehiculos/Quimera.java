@@ -58,6 +58,12 @@ public class Quimera implements Unidades {
     public void VidaRestante(int Dano){
         setVida(getVida()-Dano);
     }
+
+    @Override
+    public void Generar() {
+
+    }
+
     @Override
     public int TiempoCreacion (){
         setTiempoCreacion(6);

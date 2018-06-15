@@ -201,7 +201,7 @@ public class Juego {
                     MostrarRecursos(getRaza1(), 1);
                     break;
                 case 2:
-                    Recolectar(1);
+                    Recolectar(getRaza1(), 1);
                 case 3:
                     MostrarRecursos(getRaza1(), 1);
                     break;
@@ -217,6 +217,8 @@ public class Juego {
                 default:
                     System.out.println("No ingreso ninguna opcion pierde turno");
             }
+            Generar(Raza1, 1);
+            Generar(Raza2, 2);
             if (Jugador1.getVida() <= 0){
                 System.out.println("Gana " + getNombreJugador2());
             }
@@ -227,40 +229,63 @@ public class Juego {
         }
     }
 
-    public void Construir(String Edificio, int J){
+    public void Construir(String Edificio, int J) {
         ArrayList<ArrayList> Aux = new ArrayList<>();
         ArrayList<String> Aux2 = new ArrayList<>();
         ArrayList<ArrayList> Aux3;
-        if (J == 1){
+        if (J == 1) {
             try {
                 Aux.add(Jugador1.Construir(getRaza1(), Edificio));
-                if(Aux.get(Aux.size() - 1) == null){
+                if (Aux.get(Aux.size() - 1) == null) {
                     System.out.println("No tienes recursos suficientes para realizar esto");
-                }
-                else {
+                } else {
                     Aux2.add(Edificio);
                     Aux.add(Aux2);
                     Aux3 = getConstruccionesJ1();
                     Aux3.add(Aux);
                     setConstruccionesJ1(Aux3);
                 }
-            }
-            catch(NullPointerException e){
+            } catch (NullPointerException e) {
                 Aux.remove(Aux.size() - 1);
                 setConstruccionesJ1(getConstruccionesJ1().remove(getConstruccionesJ1().size() - 1));
                 System.out.println("No tienes los recursos suficientes para realizar esto");
             }
         }
-        if (J == 2){
-            Aux.add(Jugador2.Construir(getRaza1(), Edificio));
-            Aux2.add(Edificio);
-            Aux.add(Aux2);
-            setConstruccionesJ2(Aux);
+        if (J == 2) {
+            try {
+                Aux.add(Jugador2.Construir(getRaza1(), Edificio));
+                if (Aux.get(Aux.size() - 1) == null) {
+                    System.out.println("No tienes recursos suficientes para realizar esto");
+                } else {
+                    Aux2.add(Edificio);
+                    Aux.add(Aux2);
+                    Aux3 = getConstruccionesJ2();
+                    Aux3.add(Aux);
+                    setConstruccionesJ2(Aux3);
+                }
+            } catch (NullPointerException e) {
+                Aux.remove(Aux.size() - 1);
+                setConstruccionesJ2(getConstruccionesJ2().remove(getConstruccionesJ2().size() - 1));
+                System.out.println("No tienes los recursos suficientes para realizar esto");
+            }
         }
     }
 
-    public void Recolectar(int J){
+    public void Generar(String Raza, int J){
+        if(J == 1){
+            Jugador1.Generar(getConstruccionesJ1());
+        }
+        if (J == 2){
+            Jugador2.Generar(getConstruccionesJ2());
+        }
+    }
 
+    public void Recolectar(String Raza, int J) {
+
+        if (J == 1) {
+
+
+        }
     }
 
     public void MostrarRecursos(String Raza, int J){

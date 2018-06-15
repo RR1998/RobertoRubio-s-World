@@ -37,6 +37,16 @@ public class Cuartel implements Militares {
     }
 
     @Override
+    public void Generar() {
+
+    }
+
+    @Override
+    public int Recolectar() {
+        return 0;
+    }
+
+    @Override
     public void Entrenar(String Type){
         UnitFactory Humanos;
         Humanos = UnitProducer.getUnit("Humanos");

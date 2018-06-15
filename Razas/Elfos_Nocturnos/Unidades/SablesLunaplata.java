@@ -55,6 +55,17 @@ public class SablesLunaplata implements Unidades {
     public void VidaRestante(int Dano){
         setVida(getVida()-Dano);
     }
+
+    @Override
+    public void Generar() {
+
+    }
+
+    @Override
+    public int Recolectar() {
+        return 0;
+    }
+
     @Override
     public int TiempoCreacion (){
         setTiempoCreacion(3);

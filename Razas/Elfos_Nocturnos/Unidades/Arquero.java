@@ -58,6 +58,16 @@ public class Arquero implements Unidades{
     }
 
     @Override
+    public void Generar() {
+
+    }
+
+    @Override
+    public int Recolectar() {
+        return 0;
+    }
+
+    @Override
     public int Dano(){
         setDanoU(40);
         return getDanoU();
