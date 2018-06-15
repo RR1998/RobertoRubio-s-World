@@ -44,7 +44,7 @@ public class PiedrasCelestiales implements Recolectores {
 
     @Override
     public int Recolectar(){
-        setPiedrasCelestiales(40);
+        setPiedrasCelestiales(100);
         return getPiedrasCelestiales();
     }
 

@@ -44,7 +44,7 @@ public class ManaLunar implements Recolectores {
 
     @Override
     public int Recolectar (){
-        setManaLunar(30);
+        setManaLunar(90);
         return getManaLunar();
     }
 
