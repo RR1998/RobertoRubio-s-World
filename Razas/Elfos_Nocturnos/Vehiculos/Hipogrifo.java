@@ -67,6 +67,11 @@ public class Hipogrifo implements Unidades {
     }
 
     @Override
+    public int Recolectar() {
+        return 0;
+    }
+
+    @Override
     public int TiempoCreacion (){
         setTiempoCreacion(4);
         return getTiempoCreacion();

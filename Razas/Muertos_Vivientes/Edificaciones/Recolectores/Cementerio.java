@@ -44,6 +44,7 @@ public class Cementerio implements Recolectores {
 
     @Override
     public int Recolectar(){
+        setCadaveres(50);
         return getCadaveres();
     }
 

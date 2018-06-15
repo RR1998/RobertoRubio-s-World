@@ -44,6 +44,7 @@ public class CampoMaderero implements Recolectores {
 
     @Override
     public int Recolectar(){
+        setMadera(50);
         return getMadera();
     }
 

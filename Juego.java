@@ -168,58 +168,110 @@ public class Juego {
             }
         }
         while (Jugador1.getVida() > 0 && Jugador2.getVida() > 0){
-            cont++;
-            String Edificio;
             int Opcion = 0;
-            String Decision;
             System.out.println("\n Fase numero " + cont);
-            System.out.println("Turno de " + NombreJugador1);
-            System.out.println("1. Construir");//Hecho
-            System.out.println("2. Recolectar");
-            System.out.println("3. Mostrar Almacenado y limite de almacenado");//Hecho
-            System.out.println("4. Mostrar nivel del Centro de Mando");//Hecho
-            System.out.println("5. Subir de nivel");//Hecho
-            System.out.println("6. Entrenar");
-            System.out.println("7. Atacar");
-            System.out.println("8. Defender");
-            System.out.println("9. Rendirse");//Hecho
-            Decision = Scanner.nextLine();
-            try{
-                Opcion = Integer.parseInt(Decision);
+            while (Opcion != 10) {
+                cont++;
+                String Edificio = null;
+                String Decision;
+                System.out.println("Turno de " + NombreJugador1);
+                System.out.println("1. Construir");//Hecho
+                System.out.println("2. Mostrar Almacenado y limite de almacenado");//Hecho
+                System.out.println("3. Mostrar nivel del Centro de Mando");//Hecho
+                System.out.println("4. Subir de nivel");//Hecho
+                System.out.println("5. Entrenar");
+                System.out.println("6. Atacar");
+                System.out.println("7. Defender");
+                System.out.println("8. Rendirse");//Hecho
+                System.out.println("10. Terminar turno");
+                Decision = Scanner.nextLine();
+                try {
+                    Opcion = Integer.parseInt(Decision);
+                } catch (NumberFormatException e) {
+                    System.out.println("Ingrese un numero que se encuentre en las opciones por favor");
+                }
+                switch (Opcion) {
+                    case 1:
+                        System.out.println("Ingrese el edificio que desea construir");
+                        Construir(Edificio, 1);
+                        System.out.println("Sus contstrucciones son ");
+                        System.out.println(getConstruccionesJ1());
+                        System.out.println("Recursos restantes");
+                        MostrarRecursos(getRaza1(), 1);
+                        break;
+                    case 2:
+                        MostrarRecursos(getRaza1(), 1);
+                        break;
+                    case 3:
+                        System.out.println("El nivel de si centro de mando es: " + Jugador1.getNivel());
+                        break;
+                    case 4:
+                        SubirNivel(1);
+                        break;
+                    case 5:
+                        System.out.println("Ingrese el nombre de la unidad que entrenara");
+                        Edificio = Scanner.nextLine();
+                        Jugador1.Entrenar(getRaza1(), Edificio);
+                    case 8:
+                        Rendirse(1);
+                        break;
+                    default:
+                        System.out.println("No ingreso ninguna opcion pierde turno");
+                }
             }
-            catch(NumberFormatException e){
-                System.out.println("Ingrese un numero que se encuentre en las opciones por favor");
+            while (Opcion != 10) {
+                cont++;
+                String Edificio;
+                String Decision;
+                System.out.println("Turno de " + NombreJugador2);
+                System.out.println("1. Construir");//Hecho
+                System.out.println("2. Mostrar Almacenado y limite de almacenado");//Hecho
+                System.out.println("3. Mostrar nivel del Centro de Mando");//Hecho
+                System.out.println("4. Subir de nivel");//Hecho
+                System.out.println("5. Entrenar");
+                System.out.println("6. Atacar");
+                System.out.println("7. Defender");
+                System.out.println("8. Rendirse");//Hecho
+                System.out.println("10. Terminar turno");
+                Decision = Scanner.nextLine();
+                try {
+                    Opcion = Integer.parseInt(Decision);
+                } catch (NumberFormatException e) {
+                    System.out.println("Ingrese un numero que se encuentre en las opciones por favor");
+                }
+                switch (Opcion) {
+                    case 1:
+                        System.out.println("Ingrese el edificio que desea construir");
+                        Edificio = Scanner.nextLine();
+                        Construir(Edificio, 2);
+                        System.out.println("Sus contstrucciones son ");
+                        System.out.println(getConstruccionesJ2());
+                        System.out.println("Recursos restantes");
+                        MostrarRecursos(getRaza1(), 2);
+                        break;
+                    case 2:
+                        MostrarRecursos(getRaza1(), 2);
+                        break;
+                    case 3:
+                        System.out.println("El nivel de si centro de mando es: " + Jugador2.getNivel());
+                        break;
+                    case 4:
+                        SubirNivel(2);
+                        break;
+                    case 5:
+                        System.out.println("Escoja la unidad que entrenara");
+                        Edificio = Scanner.nextLine();
+                        Jugador2.Entrenar(getRaza2(), Edificio);
+                    case 8:
+                        Rendirse(2);
+                        break;
+                    default:
+                        System.out.println("No ingreso ninguna opcion pierde turno");
+                }
             }
-            switch(Opcion){
-                case 1:
-                    System.out.println("Ingrese el edificio que desea construir");
-                    Edificio = Scanner.nextLine();
-                    Construir(Edificio, 1);
-                    System.out.println("Sus contstrucciones son ");
-                    System.out.println(getConstruccionesJ1());
-                    System.out.println("Recursos restantes");
-                    MostrarRecursos(getRaza1(), 1);
-                    break;
-                case 2:
-                    Jugador1.Recolectar(getConstruccionesJ1());
-                    break;
-                case 3:
-                    MostrarRecursos(getRaza1(), 1);
-                    break;
-                case 4:
-                    System.out.println("El nivel de si centro de mando es: " + Jugador1.getNivel());
-                    break;
-                case 5:
-                    SubirNivel(1);
-                    break;
-                case 9:
-                    Rendirse(1);
-                    break;
-                default:
-                    System.out.println("No ingreso ninguna opcion pierde turno");
-            }
-            Jugador1.Generar(getConstruccionesJ1());
-            Jugador2.Generar(getConstruccionesJ2());
+            Jugador1.Recolectar(getConstruccionesJ1());
+            Jugador2.Recolectar(getConstruccionesJ2());
+
             if (Jugador1.getVida() <= 0){
                 System.out.println("Gana " + getNombreJugador2());
             }
@@ -285,32 +337,32 @@ public class Juego {
         }
         switch (Raza){
             case "Elfos":
-                System.out.println("Su maximo de Bendiciones de la diosa es " + Aux.get(0));
-                System.out.println("Su Maximo de Mana Lunar es " + Aux.get(1));
+                System.out.println("Su maximo de Mana Lunar es " + Aux.get(0));
+                System.out.println("Su Maximo de  Bendiciones de la diosa es " + Aux.get(1));
                 System.out.println("Su Maximo de Piedras Celestiales es " + Aux.get(2));
                 System.out.println("Usted posee " + Aux2.get(0) + " Bendiciones de la diosa");
                 System.out.println("Usted posee " + Aux2.get(1) + " de Mana Lunar");
                 System.out.println("Usted posee " + Aux2.get(2) + " Piedras Celestiales");
                 break;
             case "Humanos":
-                System.out.println("Su maximo de Madera es " + Aux.get(0));
-                System.out.println("Su Maximo de Trigo es " + Aux.get(1));
+                System.out.println("Su maximo de Trigo es " + Aux.get(0));
+                System.out.println("Su Maximo de Madera es " + Aux.get(1));
                 System.out.println("Su Maximo de Oro es " + Aux.get(2));
                 System.out.println("Usted posee " + Aux2.get(0) + " de Madera");
                 System.out.println("Usted posee " + Aux2.get(1) + " de Trigo");
                 System.out.println("Usted posee " + Aux2.get(2) + " de Oro");
                 break;
             case "Muertos":
-                System.out.println("Su maximo de Magia Negra es " + Aux.get(0));
-                System.out.println("Su Maximo de Cadaveres es " + Aux.get(1));
+                System.out.println("Su maximo de Cadaveres es " + Aux.get(0));
+                System.out.println("Su Maximo de Magia negra es " + Aux.get(1));
                 System.out.println("Su Maximo de Almas es " + Aux.get(2));
                 System.out.println("Usted posee " + Aux2.get(0) + " de Magia Negra");
                 System.out.println("Usted posee " + Aux2.get(1) + " Cadaveres");
                 System.out.println("Usted posee " + Aux2.get(2) + " Almas");
                 break;
             case"Orcos":
-                System.out.println("Su maximo de Amarras es " + Aux.get(0));
-                System.out.println("Su Maximo de Piedra es " + Aux.get(1));
+                System.out.println("Su maximo de Piedra es " + Aux.get(0));
+                System.out.println("Su Maximo de Amarras es " + Aux.get(1));
                 System.out.println("Su Maximo de Esclavos es " + Aux.get(2));
                 System.out.println("Usted posee " + Aux2.get(0) + " Amarras");
                 System.out.println("Usted posee " + Aux2.get(1) + " de Piedra");
@@ -340,4 +392,5 @@ public class Juego {
             Jugador2.setVida(0);
         }
     }
+
 }

@@ -41,12 +41,16 @@ public class Granja implements Recolectores {
     public void setTrigo(int trigo) {
         Trigo = trigo;
     }
+
     @Override
     public int Recolectar(){
+        setTrigo(70);
         return getTrigo();
     }
+
     @Override
     public void Generar(){
-        setTrigo(70 + getTrigo());
+        setTrigo(getTrigo() + 70);
+        System.out.println(getTrigo());
     }
 }

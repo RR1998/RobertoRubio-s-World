@@ -44,6 +44,7 @@ public class BendicionesdelaDiosa implements Recolectores {
 
     @Override
     public int Recolectar (){
+        setBendicionesdelaDiosa(10);
         return getBendicionesdelaDiosa();
     }
 

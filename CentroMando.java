@@ -1,8 +1,12 @@
 import Razas.Elfos_Nocturnos.Edificaciones.ConstruccionesElfas;
-import Razas.Elfos_Nocturnos.Edificaciones.Recolectores.BendicionesdelaDiosa;
+import Razas.Elfos_Nocturnos.Unidades.GeneradorElfos;
 import Razas.Humanos.Edificaciones.ConstruccionesHumanas;
+import Razas.Humanos.Unidades.GeneradorHumanos;
 import Razas.Muertos_Vivientes.Edificaciones.ConstruccionesMuertos;
+import Razas.Muertos_Vivientes.Unidades.GeneradorMuertos;
 import Razas.Orcos.Edificaciones.ConstruccionesOrcos;
+import Razas.Orcos.Unidades.GeneradorOrcos;
+
 import java.util.ArrayList;
 
 // hace el metodo para crear el centro de mando, que implemente la interfaz y que este solo posea vida en su array
@@ -10,6 +14,7 @@ public class CentroMando {
     ArrayList<Integer> GeneracionInicial = new ArrayList<>();
     ArrayList<Integer> AlmacenamientoMaximo = new ArrayList<>();
     ArrayList<Integer> CantidadAlmacenada = new ArrayList<>();
+    ArrayList<ArrayList> Tropas = new ArrayList<>();
     String Raza;
     int Nivel, Vida;
 
@@ -43,6 +48,14 @@ public class CentroMando {
 
     public void setNivel(int nivel) {
         Nivel = nivel;
+    }
+
+    public ArrayList<ArrayList> getTropas() {
+        return Tropas;
+    }
+
+    public void setTropas(ArrayList<ArrayList> tropas) {
+        Tropas = tropas;
     }
 
     public ArrayList<Integer> getGeneracionInicial() {
@@ -216,7 +229,7 @@ public class CentroMando {
                     NuevoAlmacen.add(2, Almacenado.get(2) - Aux.get(2));
                     setCantidadAlmacenada(NuevoAlmacen);
                     System.out.println(Muertos.getCMuerto(Edificio));
-                    return Muertos.getCMuerto(Edificio).Crear();
+                    Tropas.add(Muertos.getCMuerto(Edificio).Crear());
                 }
                 return null;
             case "Orcos":
@@ -248,43 +261,114 @@ public class CentroMando {
             Aux.add(Construcciones.get(i).get(1));
             String Aux2 = Aux.get(i).toString();
             switch (Aux2) {
-                case "Bendiciones de la luna":
-                    Elfos.getCElfo(Aux2).Generar();
+                case "[Bendiciones de la luna]":
+                    Elfos.getCElfo("Bendiciones de la luna").Generar();
                     break;
-                case "Mana lunar":
-                    Elfos.getCElfo(Aux2).Generar();
+                case "[Mana lunar]":
+                    Elfos.getCElfo("Mana lunar").Generar();
                     break;
-                case "Piedras celestiales":
-                    Elfos.getCElfo(Aux2).Generar();
+                case "[Piedras celestiales]":
+                    Elfos.getCElfo("Piedras celestiales").Generar();
                     break;
-                case "Granja":
-                    Humanos.getCHumano(Aux2).Generar();
+                case "[Granja]":
+                    System.out.println("la dvd si llega :v");
+                    Humanos.getCHumano("Granja").Generar();
                     break;
-                case "Campo maderero":
-                    Humanos.getCHumano(Aux2).Generar();
+                case "[Campo maderero]":
+                    Humanos.getCHumano("Campo maderero").Generar();
                     break;
-                case "Mina de oro":
-                    Humanos.getCHumano(Aux2).Generar();
+                case "[Mina de oro]":
+                    Humanos.getCHumano("Mina de oro").Generar();
                     break;
-                case "Canalizador oscuro":
-                    Muertos.getCMuerto(Aux2).Generar();
+                case "[Canalizador oscuro]":
+                    Muertos.getCMuerto("[Canalizador oscuro").Generar();
                     break;
-                case "Profanador de almas":
-                    Muertos.getCMuerto(Aux2).Generar();
+                case "[Profanador de almas]":
+                    Muertos.getCMuerto("Profanador de almas").Generar();
                     break;
-                case "Cementerio":
-                    Muertos.getCMuerto(Aux2).Generar();
+                case "[Cementerio]":
+                    Muertos.getCMuerto("Cementerio").Generar();
                     break;
-                case "Amarradero":
-                    Orcos.getCOrco(Aux2).Generar();
+                case "[Amarradero]":
+                    Orcos.getCOrco("Amarradero").Generar();
                     break;
-                case "Demoledores de piedra":
-                    Orcos.getCOrco(Aux2).Generar();
+                case "[Demoledores de piedra]":
+                    Orcos.getCOrco("Demoledores de piedra").Generar();
                     break;
-                case "Madrigera orca":
-                    Orcos.getCOrco(Aux2).Generar();
+                case "[Madrigera orca]":
+                    Orcos.getCOrco("Madrigera orca").Generar();
                     break;
             }
+        }
+    }
+
+    public void Entrenar(String Raza, String Unidad){
+        ArrayList<ArrayList> Tropas = getTropas();
+        ArrayList<String> Costo;
+        ArrayList<Integer> Almacenado = getCantidadAlmacenada();
+        ArrayList<Integer> Aux = new ArrayList<>();
+        ArrayList<Integer> NuevoAlmacen = new ArrayList<>();
+        switch (Raza) {
+            case "Elfos":
+                GeneradorElfos Elfos = new GeneradorElfos();
+                Costo = Elfos.getElfo(Unidad).Crear();
+                Aux.add(0, Integer.parseInt(Costo.get(1)));
+                Aux.add(1, Integer.parseInt(Costo.get(2)));
+                Aux.add(2, Integer.parseInt(Costo.get(3)));
+                if (Almacenado.get(0) >= Aux.get(0) && Almacenado.get(1) >= Aux.get(1) && Almacenado.get(2) >= Aux.get(2)) {
+                    NuevoAlmacen.add(0, Almacenado.get(0) - Aux.get(0));
+                    NuevoAlmacen.add(1, Almacenado.get(1) - Aux.get(1));
+                    NuevoAlmacen.add(2, Almacenado.get(2) - Aux.get(2));
+                    setCantidadAlmacenada(NuevoAlmacen);
+                    Tropas.add(Elfos.getElfo(Unidad).Crear());
+                    setTropas(Tropas);
+                    break;
+                }
+            case "Humanos":
+                GeneradorHumanos Humanos = new GeneradorHumanos();
+                Costo = Humanos.getHumano(Unidad).Crear();
+                Aux.add(0, Integer.parseInt(Costo.get(1)));
+                Aux.add(1, Integer.parseInt(Costo.get(2)));
+                Aux.add(2, Integer.parseInt(Costo.get(3)));
+                if (Almacenado.get(0) >= Aux.get(0) && Almacenado.get(1) >= Aux.get(1) && Almacenado.get(2) >= Aux.get(2)) {
+                    NuevoAlmacen.add(0, Almacenado.get(0) - Aux.get(0));
+                    NuevoAlmacen.add(1, Almacenado.get(1) - Aux.get(1));
+                    NuevoAlmacen.add(2, Almacenado.get(2) - Aux.get(2));
+                    setCantidadAlmacenada(NuevoAlmacen);
+                    Tropas.add(Humanos.getHumano(Unidad).Crear());
+                    setTropas(Tropas);
+                    break;
+                }
+            case "Muertos":
+                GeneradorMuertos Muertos = new GeneradorMuertos();
+                Costo = Muertos.getMuerto(Unidad).Crear();
+                Aux.add(0, Integer.parseInt(Costo.get(1)));
+                Aux.add(1, Integer.parseInt(Costo.get(2)));
+                Aux.add(2, Integer.parseInt(Costo.get(3)));
+                if (Almacenado.get(0) >= Aux.get(0) && Almacenado.get(1) >= Aux.get(1) && Almacenado.get(2) >= Aux.get(2)) {
+                    NuevoAlmacen.add(0, Almacenado.get(0) - Aux.get(0));
+                    NuevoAlmacen.add(1, Almacenado.get(1) - Aux.get(1));
+                    NuevoAlmacen.add(2, Almacenado.get(2) - Aux.get(2));
+                    setCantidadAlmacenada(NuevoAlmacen);
+                    Tropas.add(Muertos.getMuerto(Unidad).Crear());
+                    setTropas(Tropas);
+                    break;
+                }
+            case "Orcos":
+                GeneradorOrcos Orcos = new GeneradorOrcos();
+                Costo = Orcos.getOrco(Unidad).Crear();
+                Aux.add(0, Integer.parseInt(Costo.get(1)));
+                Aux.add(1, Integer.parseInt(Costo.get(2)));
+                Aux.add(2, Integer.parseInt(Costo.get(3)));
+                if (Almacenado.get(0) >= Aux.get(0) && Almacenado.get(1) >= Aux.get(1) && Almacenado.get(2) >= Aux.get(2)) {
+                    NuevoAlmacen.add(0, Almacenado.get(0) - Aux.get(0));
+                    NuevoAlmacen.add(1, Almacenado.get(1) - Aux.get(1));
+                    NuevoAlmacen.add(2, Almacenado.get(2) - Aux.get(2));
+                    setCantidadAlmacenada(NuevoAlmacen);
+                    Tropas.add(Orcos.getOrco(Unidad).Crear());
+                    setTropas(Tropas);
+                    break;
+                }
         }
     }
 
@@ -297,45 +381,48 @@ public class CentroMando {
         ConstruccionesHumanas Humanos = new ConstruccionesHumanas();
         ConstruccionesOrcos Orcos = new ConstruccionesOrcos();
         ConstruccionesMuertos Muertos = new ConstruccionesMuertos();
-        for (int i = 0; i < Construcciones.size() - 1; i++) {
+        Agregado.add(0, 0);
+        Agregado.add(1, 0);
+        Agregado.add(2, 0);
+        for (int i = 0; i < Construcciones.size(); i++) {
             Aux.add(Construcciones.get(i).get(1));
             String Aux2 = Aux.get(i).toString();
             switch (Aux2) {
-                case "Bendiciones de la luna":
-                    Agregado.add(0,Elfos.getCElfo(Aux2).Recolectar());
+                case "[Bendiciones de la luna]":
+                    Agregado.set(0,Elfos.getCElfo("Bendiciones de la luna").Recolectar());
                     break;
-                case "Mana lunar":
-                    Agregado.add(1, Elfos.getCElfo(Aux2).Recolectar());
+                case "[Mana lunar]":
+                    Agregado.set(1, Elfos.getCElfo("Mana lunar").Recolectar());
                     break;
-                case "Piedras celestiales":
-                    Agregado.add(2, Elfos.getCElfo(Aux2).Recolectar());
+                case "[Piedras celestiales]":
+                    Agregado.set(2, Elfos.getCElfo("Piedras celestiales").Recolectar());
                     break;
-                case "Granja":
-                    Agregado.add(0, Humanos.getCHumano(Aux2).Recolectar());
+                case "[Granja]":
+                    Agregado.set(0, Humanos.getCHumano("Granja").Recolectar());
                     break;
-                case "Campo maderero":
-                    Agregado.add(1, Humanos.getCHumano(Aux2).Recolectar());
+                case "[Campo maderero]":
+                    Agregado.set(1, Humanos.getCHumano("Campo maderero").Recolectar());
                     break;
-                case "Mina de oro":
-                    Agregado.add(2, Humanos.getCHumano(Aux2).Recolectar());
+                case "[Mina de oro]":
+                    Agregado.set(2, Humanos.getCHumano("Mina de oro").Recolectar());
                     break;
-                case "Canalizador oscuro":
-                    Agregado.add(0, Muertos.getCMuerto(Aux2).Recolectar());
+                case "[Canalizador oscuro]":
+                    Agregado.set(0, Muertos.getCMuerto("Canalizador oscuro").Recolectar());
                     break;
-                case "Profanador de almas":
-                    Agregado.add(1, Muertos.getCMuerto(Aux2).Recolectar());
+                case "[Profanador de almas]":
+                    Agregado.set(1, Muertos.getCMuerto("Profanador de almas").Recolectar());
                     break;
-                case "Cementerio":
-                    Agregado.add(2, Muertos.getCMuerto(Aux2).Recolectar());
+                case "[Cementerio]":
+                    Agregado.set(2, Muertos.getCMuerto("Cementerio").Recolectar());
                     break;
-                case "Amarradero":
-                    Agregado.add(0, Orcos.getCOrco(Aux2).Recolectar());
+                case "[Amarradero]":
+                    Agregado.set(0, Orcos.getCOrco("Amarradero").Recolectar());
                     break;
-                case "Demoledores de piedra":
-                    Agregado.add(1, Orcos.getCOrco(Aux2).Recolectar());
+                case "[Demoledores de piedra]":
+                    Agregado.set(1, Orcos.getCOrco("Demoledores de piedra").Recolectar());
                     break;
-                case "Madrigera orca":
-                    Agregado.add(2, Orcos.getCOrco(Aux2).Recolectar());
+                case "[Madrigera orca]":
+                    Agregado.set(2, Orcos.getCOrco("Madrigera orca").Recolectar());
                     break;
             }
         }
