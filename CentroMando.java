@@ -290,6 +290,9 @@ public class CentroMando {
 
     public void Recolectar(ArrayList<ArrayList> Construcciones){
         ArrayList<Object> Aux = new ArrayList<>();
+        ArrayList<Integer> Inventario = getCantidadAlmacenada();
+        ArrayList<Integer> Agregado = new ArrayList<>();
+        ArrayList<Integer> Aux3 = new ArrayList<>();
         ConstruccionesElfas Elfos = new ConstruccionesElfas();
         ConstruccionesHumanas Humanos = new ConstruccionesHumanas();
         ConstruccionesOrcos Orcos = new ConstruccionesOrcos();
@@ -299,42 +302,46 @@ public class CentroMando {
             String Aux2 = Aux.get(i).toString();
             switch (Aux2) {
                 case "Bendiciones de la luna":
-                    Elfos.getCElfo(Aux2).Recolectar();
+                    Agregado.add(0,Elfos.getCElfo(Aux2).Recolectar());
                     break;
                 case "Mana lunar":
-                    Elfos.getCElfo(Aux2).Recolectar();
+                    Agregado.add(1, Elfos.getCElfo(Aux2).Recolectar());
                     break;
                 case "Piedras celestiales":
-                    Elfos.getCElfo(Aux2).Recolectar();
+                    Agregado.add(2, Elfos.getCElfo(Aux2).Recolectar());
                     break;
                 case "Granja":
-                    Humanos.getCHumano(Aux2).Recolectar();
+                    Agregado.add(0, Humanos.getCHumano(Aux2).Recolectar());
                     break;
                 case "Campo maderero":
-                    Humanos.getCHumano(Aux2).Recolectar();
+                    Agregado.add(1, Humanos.getCHumano(Aux2).Recolectar());
                     break;
                 case "Mina de oro":
-                    Humanos.getCHumano(Aux2).Recolectar();
+                    Agregado.add(2, Humanos.getCHumano(Aux2).Recolectar());
                     break;
                 case "Canalizador oscuro":
-                    Muertos.getCMuerto(Aux2).Recolectar();
+                    Agregado.add(0, Muertos.getCMuerto(Aux2).Recolectar());
                     break;
                 case "Profanador de almas":
-                    Muertos.getCMuerto(Aux2).Recolectar();
+                    Agregado.add(1, Muertos.getCMuerto(Aux2).Recolectar());
                     break;
                 case "Cementerio":
-                    Muertos.getCMuerto(Aux2).Recolectar();
+                    Agregado.add(2, Muertos.getCMuerto(Aux2).Recolectar());
                     break;
                 case "Amarradero":
-                    Orcos.getCOrco(Aux2).Recolectar();
+                    Agregado.add(0, Orcos.getCOrco(Aux2).Recolectar());
                     break;
                 case "Demoledores de piedra":
-                    Orcos.getCOrco(Aux2).Recolectar();
+                    Agregado.add(1, Orcos.getCOrco(Aux2).Recolectar());
                     break;
                 case "Madrigera orca":
-                    Orcos.getCOrco(Aux2).Recolectar();
+                    Agregado.add(2, Orcos.getCOrco(Aux2).Recolectar());
                     break;
             }
         }
+        Aux3.add(0, Inventario.get(0) + Agregado.get(0));
+        Aux3.add(1, Inventario.get(1) + Agregado.get(1));
+        Aux3.add(2, Inventario.get(2) + Agregado.get(2));
+        setCantidadAlmacenada(Aux3);
     }
 }
