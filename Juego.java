@@ -201,7 +201,8 @@ public class Juego {
                     MostrarRecursos(getRaza1(), 1);
                     break;
                 case 2:
-                    Recolectar(getRaza1(), 1);
+                    Jugador1.Recolectar(getConstruccionesJ1());
+                    break;
                 case 3:
                     MostrarRecursos(getRaza1(), 1);
                     break;
@@ -217,8 +218,8 @@ public class Juego {
                 default:
                     System.out.println("No ingreso ninguna opcion pierde turno");
             }
-            Generar(Raza1, 1);
-            Generar(Raza2, 2);
+            Jugador1.Generar(getConstruccionesJ1());
+            Jugador2.Generar(getConstruccionesJ2());
             if (Jugador1.getVida() <= 0){
                 System.out.println("Gana " + getNombreJugador2());
             }
@@ -268,23 +269,6 @@ public class Juego {
                 setConstruccionesJ2(getConstruccionesJ2().remove(getConstruccionesJ2().size() - 1));
                 System.out.println("No tienes los recursos suficientes para realizar esto");
             }
-        }
-    }
-
-    public void Generar(String Raza, int J){
-        if(J == 1){
-            Jugador1.Generar(getConstruccionesJ1());
-        }
-        if (J == 2){
-            Jugador2.Generar(getConstruccionesJ2());
-        }
-    }
-
-    public void Recolectar(String Raza, int J) {
-
-        if (J == 1) {
-
-
         }
     }
 
